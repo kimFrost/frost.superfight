@@ -11,6 +11,7 @@ var users = require('./routes/users');
 
 var app = express();
 
+/*
 var TaskList = require('./routes/tasklist');
 var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 //var taskList = new TaskList('localhost');
@@ -28,15 +29,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 /*
 app.use('/', routes);
 app.use('/users', users);
 */
+
+/*
 app.get('/', taskList.showTasks.bind(taskList));
 app.get('/test', taskList.showTasks.bind(taskList));
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,6 +71,19 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+*/
+
+// Restrictions
+app.get('/app.js', function (req, res) {
+	res.send('File cannot be accessed from this location');
+});
+app.get('/node_modules/*', function (req, res) {
+	res.send('Folder cannot be accessed from this location');
+});
+
+
+
+
 
 
 app.listen(3000); // Listen on port 3000
