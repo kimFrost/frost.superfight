@@ -34,6 +34,7 @@ app.use('/', routes);
 app.use('/users', users);
 */
 app.get('/', taskList.showTasks.bind(taskList));
+app.get('/test', taskList.showTasks.bind(taskList));
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
 
