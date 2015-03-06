@@ -11,7 +11,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-/*
+
 var TaskList = require('./routes/tasklist');
 var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 //var taskList = new TaskList('localhost');
@@ -34,7 +34,7 @@ app.use('/', routes);
 app.use('/users', users);
 */
 
-/*
+
 app.get('/', taskList.showTasks.bind(taskList));
 app.get('/test', taskList.showTasks.bind(taskList));
 app.post('/addtask', taskList.addTask.bind(taskList));
@@ -71,7 +71,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-*/
+
+
+
 
 // Restrictions
 app.get('/app.js', function (req, res) {
