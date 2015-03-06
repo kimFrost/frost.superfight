@@ -56,7 +56,7 @@ TaskList.prototype = {
 		res.redirect('/');
 	},
 
-	addCard: function(reg, res) {
+	addCard: function(req, res) {
 		var item = req.body;
 		var card = new Card();
 		card.name = item.name;
