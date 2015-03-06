@@ -18,7 +18,7 @@ TaskList.prototype = {
 				tasks: items
 			});
 			*/
-			res.render();
+			res.render('addcard');
 		});
 	},
 
