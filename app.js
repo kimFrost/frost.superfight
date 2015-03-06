@@ -6,9 +6,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
 
@@ -20,6 +17,13 @@ var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
