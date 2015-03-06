@@ -5,5 +5,7 @@ form(action="/addcard", method="post")
 	input(type="radio", name="type", value="trait")
 	label scenario
 	input(type="radio", name="type", value="scenario")
+	input(type="text", name="name", placeholder="Card name")
 	textarea(placeholder="Card text")
 	textarea(placeholder="Alt. text")
+	input(type="submit", value="Add card")

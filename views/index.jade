@@ -18,6 +18,7 @@ form(action="/completetask", method="post")
           input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
   input(type="submit", value="Update tasks")
 hr
+
 form(action="/addtask", method="post")
   table(border="1") 
     tr
