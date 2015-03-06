@@ -28,20 +28,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+/*
 var index = require('./routes/index');
 var users = require('./routes/users');
+*/
 
 /*
 app.use('/', index);
 app.use('/users', users);
 */
 
-/*
+// GETS
 app.get('/', taskList.showTasks.bind(taskList));
+
+// POST
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
-*/
+
 
 
 
