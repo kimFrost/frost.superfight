@@ -12,10 +12,13 @@ TaskList.prototype = {
 	// Index
 	showTasks: function (req, res) {
 		task.find({itemCompleted: false}, function foundTasks(err, items) {
+			/*
 			res.render('index', {
 				title: 'My ToDo List',
 				tasks: items
-			})
+			});
+			*/
+			res.render();
 		});
 	},
 
@@ -49,4 +52,4 @@ TaskList.prototype = {
 		}
 		res.redirect('/');
 	}
-}
+};
