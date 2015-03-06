@@ -61,6 +61,8 @@ TaskList.prototype = {
 		var card = new Card();
 		card.name = item.name;
 		card.type = item.type;
+		card.text = item.text;
+		card.altText = item.altText;
 		// Send to db
 		card.save(function(err) {
 			if (err) {
