@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd78c737-fe00-496e-bd34-50a2f252233d" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\workspace\frost.superfight\views\index2.jade" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tasklist.js" afterPath="$PROJECT_DIR$/routes/tasklist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="frost.superfight.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,18 +29,28 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.575758" vertical-offset="772" max-vertical-offset="2014">
+            <state vertical-scroll-proportion="-33.969696" vertical-offset="0" max-vertical-offset="2014">
               <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasklist.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tasklist.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/tasklist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57621706" vertical-offset="0" max-vertical-offset="1253">
-              <caret line="38" column="37" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1083">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_psd.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_psd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.50039905" vertical-offset="228" max-vertical-offset="5453">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -505,9 +512,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OLD_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25698325" vertical-offset="1" max-vertical-offset="1254">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.575758" vertical-offset="772" max-vertical-offset="2014">
+        <state vertical-scroll-proportion="-33.969696" vertical-offset="0" max-vertical-offset="2014">
           <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
           <folding />
         </state>
@@ -515,8 +530,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/tasklist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57621706" vertical-offset="0" max-vertical-offset="1253">
-          <caret line="38" column="37" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1083">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_psd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50039905" vertical-offset="228" max-vertical-offset="5453">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>

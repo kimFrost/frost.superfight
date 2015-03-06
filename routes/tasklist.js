@@ -33,8 +33,8 @@ TaskList.prototype = {
 	},
 
 	completeTask: function (req, res) {
-		res.send('completeTask');
-		res.send(req);
+		//res.send('completeTask');
+		//res.send(req);
 		var completedTasks = req.body;
 		for (taskId in completedTasks) {
 			if (completedTasks[taskId] == 'true') {
