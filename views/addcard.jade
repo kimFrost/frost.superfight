@@ -1,15 +1,18 @@
-form.form(action="/addcard", method="post")
+extends ../layout
 
-	label.form__label character
-	input.form__input(type="radio", name="type", value="character")
-	label.form__label trait
-	input.form__input(type="radio", name="type", value="trait")
-	label.form__label scenario
-	input.form__input(type="radio", name="type", value="scenario")
+block append content
+	form.form(action="/addcard", method="post")
 
-	input.form__input(type="text", name="name", placeholder="Card name")
+		label.form__label character
+		input.form__input(type="radio", name="type", value="character")
+		label.form__label trait
+		input.form__input(type="radio", name="type", value="trait")
+		label.form__label scenario
+		input.form__input(type="radio", name="type", value="scenario")
 
-	textarea.form__input(placeholder="Card text", name="text")
-	textarea.form__input(placeholder="Alt. text", name="altText")
+		input.form__input(type="text", name="name", placeholder="Card name")
 
-	input.form__button(type="submit", value="Add card")
+		textarea.form__input(placeholder="Card text", name="text")
+		textarea.form__input(placeholder="Alt. text", name="altText")
+
+		input.form__button(type="submit", value="Add card")
