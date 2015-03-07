@@ -59,6 +59,7 @@ html {
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\0000360}}
 .container__content {
   width: 100%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   height: 100%;
