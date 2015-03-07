@@ -1,0 +1,279 @@
+
+
+// PARAMETERS
+$_logoWidth: image-width('../images/graphic/game_banner.png');
+$_logoHeight: image-height('../images/graphic/game_banner.png');
+$_logoRatio: ($_logoWidth / $_logoHeight);
+
+
+// BLOCK
+.game {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.game,
+.game__logo,
+.game__teaser,
+.game__rulesteaser,
+.game__game,
+.game__footer,
+.game__teaserplay {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.game__logo {
+  background-image: url('/images/graphic/game_banner.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  width: 90%;
+  //adding-bottom: (100% / $_logoRatio * 0.8);
+  height: 35%;
+  z-index: 10;
+  position: absolute;
+  top: 7%;
+  left: 5%;
+}
+
+.game__teaser {
+  @include transform-origin(0%, 100%);
+  @include rotate(43deg);
+  display: block;
+  position: absolute;
+  bottom: 15%;
+  width: 220px;
+  left: -135px;
+  z-index: 3;
+}
+
+.game__rulesteaser {
+  @include fontSize(alpha, 1);
+  display: block;
+  position: absolute;
+  //top: 50px;
+  top: 30px;
+  left: 40px;
+  width: calc(100% - 80px);
+  z-index: 15;
+  color: $color_white;
+  text-decoration: underline;
+  text-align: left;
+  cursor: pointer;
+}
+
+.game__game {
+  display: block;
+  position: absolute;
+  z-index: 5;
+  width: 70%;
+  left: 15%;
+  top: 44%;
+}
+
+.game__footer {
+  @include fontSize(epsilon, 1);
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $font_HelveticaNeueBlack;
+  font-weight: 400;
+  position: absolute;
+  width: 96%;
+  bottom: 40px;
+  left: 2%;
+}
+
+.game__teaserplay {
+  @include rotate(-43deg);
+  margin-left: 10px;
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries(mobile) {
+  .game__teaser {
+    display: none;
+  }
+  .game__logo {
+    height: 25%;
+    background-image: url('/images/graphic/game_banner-mobile.png');
+  }
+  .game__rulesteaser {
+    top: auto;
+    bottom: 30px;
+    text-align: center;
+  }
+  .game__footer {
+    @include fontSize(delta, 1.2);
+    bottom: auto;
+    top: 31%;
+    width: 90%;
+    left: 5%;
+    font-family: $font_basic;
+    text-transform: none;
+    & > p {
+      font-family: $font_HelveticaNeueBlack;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+  }
+  .game__game {
+    top: auto;
+    bottom: 25%;
+    width: 90%;
+    left: 5%;
+  }
+}
+
+@include mediaQueries(tablet) {
+  @include portrait() {
+    .game__game {
+      width: 86%;
+      left: 7%;
+    }
+  }
+  @include landscape() {
+    .game__logo {
+      height: 30%;
+    }
+    .game__game {
+      top: 39%;
+    }
+  }
+}
+
+@include mediaQueries(desktop) {
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+@include mediaQueries(mobile) {
+  @include landscape() {
+    .game__rulesteaser {
+      text-align: left;
+      top: 30px;
+      left: 40px;
+      width: auto;
+    }
+    .game__logo {
+      width: 60%;
+      padding-bottom: (100% / $_logoRatio * 0.6);
+      left: 20%;
+      top: 7%;
+    }
+    .game__game {
+      width: 60%;
+      left: 20%;
+      top: 30%;
+    }
+    .game__footer {
+
+    }
+  }
+}
+
+@include mediaQueries(tablet) {
+  .game__logo {
+    //height: $_logoHeight;
+    //width: $mq-contentWidth;
+    //left: calc(50% - #{$mq-contentWidth / 2});
+    //padding-bottom: 0;
+  }
+  .game__teaser {
+    display: block;
+    //bottom: 10%;
+    //left: 0;
+  }
+  .game__rulesteaser {
+    top: 30px;
+    left: 40px;
+    width: auto;
+    text-align: left;
+  }
+  .game__game {
+    width: 70%;
+    left: 15%;
+    top: 40%;
+  }
+  .game__footer {
+    //@include fontSize(eta, 1);
+    bottom: 40px;
+    //left: 0;
+    //width: 100%;
+  }
+  @include landscape() {
+    .game__rulesteaser {
+      text-align: left;
+      top: 30px;
+      left: 40px;
+      width: auto;
+    }
+    .game__logo {
+      width: 60%;
+      padding-bottom: (100% / $_logoRatio * 0.6);
+      left: 20%;
+      top: 7%;
+    }
+    .game__game {
+      width: 60%;
+      left: 20%;
+      top: 40%;
+    }
+    .game__footer {
+
+    }
+  }
+}
+
+@include mediaQueries(desktop) {
+  .game__logo {
+    height: $_logoHeight;
+    width: $mq-contentWidth;
+    left: calc(50% - #{$mq-contentWidth / 2});
+    padding-bottom: 0;
+  }
+  .game__teaser {
+    display: block;
+    //bottom: 10%;
+    //left: 0;
+  }
+  .game__rulesteaser {
+    top: 30px;
+    left: 40px;
+    width: auto;
+    text-align: left;
+  }
+  .game__game {
+    width: 70%;
+    left: 15%;
+    top: 40%;
+  }
+  .game__footer {
+    //@include fontSize(eta, 1);
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+  }
+}
+*/

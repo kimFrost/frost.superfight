@@ -1,7 +1,10 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+html(data-ng-app="noerd.BrugSkallen")
+	head
+		title= title
+		link(rel='stylesheet', href='/css/main.css')
+	body
+		div.container
+			div.container__content
+				div.container__inner
+					block content

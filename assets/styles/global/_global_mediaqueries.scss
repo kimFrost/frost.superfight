@@ -1,0 +1,77 @@
+
+/* Global mediaQueries mixin */
+
+$mq-useAdaptive: true !global;
+$mq-mediaQueries: () !global;
+$mq-contentWidth: null !global;
+$mq-activeMediaQuery: null;
+
+// $_map: ("key1": 1, "key2": 2)
+// $_value: map-get($_map, "Key1");
+// @if map-has-key($_map, "Key3") {
+// $_map: map-remove($_map, "Key3");
+
+
+@mixin newMediaQuerie($_map) {
+  $mq-mediaQueries: map-merge($mq-mediaQueries, (map-get($_map, name):$_map)) !global;
+  @if map-has-key($_map, default) {
+    @if map-get($_map, default) == true and map-has-key($_map, contentWidth) {
+      $mq-contentWidth: map-get($_map, contentWidth) !global; // Set the default global contentWidth
+    }
+  }
+}
+
+@mixin mediaQueries($_profileName, $device:all) {
+  @if $mq-useAdaptive == true {
+    //@debug "$_profileName: " + $_profileName;
+    @if (map-has-key($mq-mediaQueries, $_profileName)) {
+      $_mq-query: map-get($mq-mediaQueries, $_profileName);
+      $mq-activeMediaQuery: $_mq-query !global;
+      $_queryString: "";
+
+      //@debug $_mq-query;
+
+      @if map-has-key($_mq-query, min-width) and map-has-key($_mq-query, max-width){
+        $_queryString: "(min-width: #{map-get($_mq-query, min-width)}) and (max-width: #{map-get($_mq-query, max-width)})";
+      }
+      @else if map-has-key($_mq-query, min-width) {
+        $_queryString: "(min-width: #{map-get($_mq-query, min-width)})";
+      }
+      @else if map-has-key($_mq-query, max-width) {
+        $_queryString: "(max-width: #{map-get($_mq-query, max-width)})";
+      }
+
+      @else if map-has-key($_mq-query, min-height) and map-has-key($_mq-query, max-height){
+        $_queryString: "(min-height: #{map-get($_mq-query, min-height)}) and (max-height: #{map-get($_mq-query, max-height)})";
+      }
+      @else if map-has-key($_mq-query, min-height) {
+        $_queryString: "(min-height: #{map-get($_mq-query, min-height)})";
+      }
+      @else if map-has-key($_mq-query, max-height) {
+        $_queryString: "(max-height: #{map-get($_mq-query, max-height)})";
+      }
+
+      //@debug "$_queryString: "+$_queryString;
+
+      $mq-contentWidth: map-get($_mq-query, contentWidth) !global; // Set global content width for use in include
+      @media #{$device} and #{$_queryString} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin landscape() {
+  @media(orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait() {
+  @media(orientation: portrait) {
+    @content;
+  }
+}
+
+
+

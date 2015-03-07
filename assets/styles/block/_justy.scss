@@ -1,0 +1,68 @@
+
+
+// PARAMETERS
+$_justyWidth: 16px;
+
+// BLOCK
+.justy {
+  @include border-radius(2px);
+  @include box-shadow(0px 1px 0px 0px darken($color_hearth, 7%));
+  display: block;
+  position: relative;
+  //width: 100%;
+  width: $_justyWidth;
+  background-color: $color_harvest;
+  font-family: $font_HelveticaNeueHeavy;
+  height: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &:before,
+  &:after {
+    @include border-radius(2px);
+    @include box-shadow(0px 1px 0px 0px darken($color_hearth, 7%));
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: $color_harvest;
+  }
+  &:before {
+    top: -5px;
+  }
+  &:after {
+    bottom: -5px;
+  }
+}
+
+.justy,
+.justy__text {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.justy__text {
+  @include fontSize(jimmi, 1);
+  position: relative;
+  top: -5px;
+  left: 100%;
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.justy--invert {
+  @include box-shadow(0px 1px 0px 0px darken($color_harvest, 7%));
+  background-color: $color_hearth;
+  &:before,
+  &:after {
+    @include box-shadow(0px 1px 0px 0px darken($color_harvest, 7%));
+    background-color: $color_hearth;
+  }
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//

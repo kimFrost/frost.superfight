@@ -1,0 +1,50 @@
+
+/* Global Mixins */
+
+@mixin clearfix() {
+  &:after {
+      content: ".";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+    }
+}
+
+@mixin noUserSelect() {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+
+@mixin onlyInDebug() {
+  @if $debug == true {
+    @content;
+  }
+}
+
+@mixin hoverActiveStates($_color:#555, $_prop:"color",$_amount: 5%) {
+	@if $_prop == "color" {
+		color: $_color;
+		&:hover {
+			color: lighten($_color,$_amount);
+		}
+		&:active {
+			color: darken($_color,$_amount);
+		}
+	}
+	@if $_prop == "background" or $_prop == "background-color"{
+		background-color: $_color;
+		&:hover {
+			background-color: lighten($_color,$_amount);
+		}
+		&:active {
+			background-color: darken($_color,$_amount);
+		}
+	}
+}
+
+

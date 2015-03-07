@@ -1,0 +1,452 @@
+
+
+// PARAMETERS
+//$__gutterWidth: 20px;
+$__gutterWidth: 0;
+
+// BLOCK
+.panel {
+  @include transition(transform 800ms ease);
+  width: 100%;
+  height: 100%;
+	padding-right: $__gutterWidth;
+	padding-left: $__gutterWidth;
+	position: relative;
+	opacity: 1;
+  //overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  //position: fixed;
+  top: 0;
+  left: 0;
+
+
+
+  @include onlyInDebug() {
+    background-color: red;
+	}
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+	}
+}
+
+.panel,
+.panel__inner,
+.panel__content,
+.panel__overlay,
+.panel__overlaybg,
+.panel__bg,
+.panel__bg:before,
+.panel__bg:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.panel__inner {
+  position: relative;
+	width: 100%;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	@include onlyInDebug() {
+		background-color: gold;
+	}
+}
+
+.panel__content {
+  width: $mq-contentWidth;
+	margin: 0 auto;
+  position: relative;
+  height: 100%;
+  //min-height: 100%; // flexbox will now center align with min-height
+  z-index: 1;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  @include mediaQueries(tablet){
+		width: $mq-contentWidth;
+	};
+	@include mediaQueries(desktop){
+		width: $mq-contentWidth;
+	};
+	@include mediaQueries(mobile){
+		//width: $mq-contentWidth; // Mobile is set as default
+	};
+	@include onlyInDebug() {
+		background-color: goldenrod;
+	}
+}
+
+.panel__overlay {
+  display: block;
+  //position: absolute;
+  position: relative;
+  width: 80%;
+  //height: 1200px;
+  background-color: $color_harvest;
+  border: 4px solid $color_white;
+  background-image: url('/images/graphic/sun_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center top;
+  //background-attachment: fixed;
+  //left: 10%;
+  //top: 40px;
+  //margin-bottom: 100px;
+  margin: 40px auto 100px auto;
+  padding: 15px 20px;
+  z-index: 50;
+}
+
+.panel__overlaybg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+  //background-color: rgba(red, 0.5);
+}
+
+.panel__overlayclose {
+  @include noUserSelect();
+  @include border-radius(50%);
+  content: "";
+  display: block;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 60px;
+  height: 60px;
+  color: $color_white;
+  background-color: $color_hearth;
+  background-image: url('/images/graphic/close.png');
+  background-repeat: no-repeat;
+  background-position: 49% center;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  &:focus,
+  &:hover {
+    background-color: lighten($color_hearth, 15%);
+  }
+  &:active {
+    background-color: darken($color_hearth, 15%);
+  }
+}
+
+.panel__scrollarea {
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  //overflow-y: auto;
+  overflow-x: hidden;
+  display: none;
+  z-index: 50;
+
+  overflow-y: scroll;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+
+  // Hide scrollbar, but still allow scroll
+  -ms-overflow-style: none;
+  //overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    //display: none;
+    width: 0;
+  }
+}
+
+.panel__bg {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  //z-index: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  &:before {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.panel--list {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  //overflow-y: auto;
+  //overflow: hidden;
+
+  overflow-y: scroll;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+
+  // Permanently disable native scroll
+  overflow: hidden;
+
+  // Hide scrollbar, but still allow scroll
+  -ms-overflow-style: none;
+  //overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    //display: none;
+    width: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.panel--lockscroll {
+  overflow: hidden;
+}
+
+.panel--frame {
+  color: $color_white;
+  .panel__bg {
+    background-color: $color_hearth;
+    z-index: 0;
+    &:before,
+    &:after {
+      @include border-image(url('/images/graphic/border_bullet.png') 15 15 round round);
+      @include animation(aniShowHide 1s linear infinite);
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      border-style: solid;
+      border-width: 15px;
+      opacity: 1;
+      // Fallback for border-image
+      .no-borderimage & {
+        //border: 0;
+        border: 3px dotted $color_easter;
+      }
+    }
+    &:after {
+      @include border-image(url('/images/graphic/border_bullet_inverted.png') 15 15 round);
+      @include animation(aniHideShow 1s linear infinite);
+      opacity: 0;
+    }
+    .no-borderimage & {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.panel--sun {
+  .panel__bg {
+    background-image: url('/images/graphic/sun_bg.jpg');
+    &:before {
+      display: block;
+      @include animation(showhide 2s linear infinite);
+      background-image: url('/images/graphic/sun_bg_inverted.jpg');
+    }
+  }
+}
+
+.panel__scrollarea--show {
+  display: block;
+}
+
+.panel__overlay--tight {
+  padding: 32px 30px;
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries(mobile) {
+  html {
+    overflow: hidden;
+  }
+  .panel--list {
+    overflow-y: scroll;
+  }
+  .panel--frame {
+    .panel__bg {
+      &:before {
+        @include animation(none);
+        @include border-image(url('/images/graphic/border_bullet.png') 15 / 0.5 round);
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .panel--sun {
+    .panel__bg {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+@include mediaQueries(tablet) {
+  html {
+    overflow: hidden;
+  }
+  .panel--list {
+    overflow-y: scroll;
+  }
+  .panel__overlay {
+    width: 80%;
+    //left: 10%;
+    //top: 25%;
+    //top: 65px;
+    margin-top: 65px;
+    min-height: 40%;
+    padding: 32px 50px;
+  }
+  .panel__overlay--tight {
+    padding: 32px 30px;
+  }
+
+  .panel--frame {
+    .panel__bg {
+      &:before {
+        //@include animation(none);
+      }
+      &:after {
+        //@include animation(none);
+        //display: none;
+      }
+    }
+  }
+  .panel--sun {
+    .panel__bg {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  @include landscape() {
+    .panel__overlay {
+      width: 60%;
+      //left: 20%;
+    }
+  }
+}
+
+@include mediaQueries(desktop) {
+  .panel--list {
+    overflow-y: scroll;
+  }
+  .panel__overlay {
+    width: 60%;
+    //left: 20%;
+    //top: 25%;
+    //top: 65px;
+    margin-top: 65px;
+    min-height: 40%;
+    padding: 32px 50px;
+  }
+  .panel__overlay--tight {
+    padding: 32px 30px;
+  }
+}
+
+
+//--- KEYFRAME ANIMATIONS ----------------------------------------------------------//
+
+@include keyframes(borderswitch) {
+  0% {
+    @include border-image(url('/images/graphic/border_bullet.png') 15 15 round);
+  }
+
+  50% {
+    @include border-image(url('/images/graphic/border_bullet_inverted.png') 15 15 round);
+  }
+}
+
+@include keyframes(showhide) {
+  0%, 49% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(hideshow) {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@include keyframes(aniShowHide) {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(aniHideShow) {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

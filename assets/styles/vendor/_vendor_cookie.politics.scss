@@ -1,0 +1,163 @@
+﻿#cookiePolitics {
+    height: 80px;
+    background: url(/img/cookie/bg.png) repeat-x;
+    display: none;
+	position: relative;
+	z-index: 395;
+}
+#cookiePolitics .wrapper {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#cookiePolitics .col {
+    float: left;
+    overflow: hidden;
+    padding-top: 2px;
+}
+
+#cookiePolitics .content {
+    
+    width: 67%;
+    background-image: url(/img/cookie/logo.png);
+    background-repeat: no-repeat;
+    background-position: 0px 11px;
+
+    padding-left: 7%;
+	margin-top: 4px;
+}
+
+#cookiePolitics .info
+{
+    width: 21%;
+
+}
+#cookiePolitics .info ul
+{
+    list-style: none;
+    margin: 11px 0 0 0;
+    padding: 0;
+
+
+}
+#cookiePolitics .info ul li
+{
+    margin: 0 0;
+    
+
+}
+
+
+#cookiePolitics .info ul li a {
+    background-position:  center left;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+	font-size: 12px;
+}
+
+#cookiePolitics .info ul li.accept a
+{
+    background-image: url(/img/cookie/accept.png);
+}
+#cookiePolitics .info ul li.more a
+{
+    background-image: url(/img/cookie/question.png);
+	
+}
+
+#cookiePolitics .close
+{
+    width: 5%;
+	margin-top: 7px;
+}
+#cookiePolitics .close a
+{
+    background: url(/img/cookie/close.png) center center no-repeat;
+    height: 20px;
+    width: 20px;
+    display: block;
+    float: right;
+    top:  -5px;
+    margin-top: 50%;
+    position: relative;
+}
+
+#cookiePolitics a {
+    color: #b21436;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: italic;
+}
+#cookiePolitics a:hover
+{
+        color: #222;
+}
+
+#cookiePolitics h2 {
+    color: #b21436;
+    font-size: 18px;
+    margin: 18px 0 0 0;
+	line-height: 12px;
+}
+
+#cookiePolitics p
+{
+    font-size: 13px;
+    color: black;
+    margin: 7px 0;
+}
+
+#cookiePolitics #CookieModal h2 {
+   color: #b21436; 
+   font-size: 30px;
+   line-height: 30px;
+   margin-top: 8px;
+}
+#cookiePolitics #CookieModal p {
+  color: black;
+	font-size: 15px;
+}
+
+#cookiePolitics #CookieModal a {
+    color: #b21436;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: italic;
+	font-size: 15px;
+}
+#cookiePolitics #CookieModal a:hover
+{
+        color: #222;
+}
+
+#cookiePolitics #CookieModal {
+    background-color: white;
+    width: 800px;
+    
+    position: absolute;
+    z-index: 5100;
+    display: block;
+    left: 50%;
+    
+    margin: 60px 0 0 -400px;
+    display: none;
+}
+    #cookiePolitics #CookieModal .wrapper
+    {
+        margin: 20px;
+    }
+
+#modalOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0.9;
+     display: none;
+}
+
+.noScroll {
+    overflow: hidden;
+}

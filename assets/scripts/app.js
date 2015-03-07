@@ -10,15 +10,8 @@
  * Main module of the application.
  */
 angular
-  .module('noerd.BrugSkallen', ['ngAnimate', 'tracking'])
-    .config(['$locationProvider', function($locationProvider) {
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
-        //$locationProvider.hashPrefix('!');
-    }])
+  .module('dashboard', [])
   .run(function () {
-    //console.log('Main Application Run()');
+    console.log('Main Application Run()');
   });
 })();

@@ -1,0 +1,38 @@
+
+
+
+.spacer {
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin-bottom: 19px;
+	clear: both;
+}
+
+.spacer {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.spacer--line {
+	background-color: $color_ash;
+}
+
+.spacer--headline {
+	@include fontSize(eta);
+	height: auto;
+	background-color: transparent;
+	&:after {
+		content: "";
+		margin-top: 3px;
+		height: 1px;
+		display: block;
+		width: 100%;
+		background-color: $color_ash;
+	}
+}
+
+.spacer--big {
+	margin-bottom: 59px;
+}

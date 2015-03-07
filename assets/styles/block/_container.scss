@@ -1,0 +1,221 @@
+
+
+// PARAMETERS
+$__gutterWidth: 20px;
+
+// BLOCK
+.container {
+  @include transition(transform 800ms ease);
+  width: 100%;
+  height: 100%;
+  padding-right: $__gutterWidth;
+  padding-left: $__gutterWidth;
+  position: relative;
+  opacity: 1;
+  //overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  //position: fixed;
+  top: 0;
+  left: 0;
+
+
+
+  @include onlyInDebug() {
+    background-color: red;
+  }
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.container,
+.container__inner,
+.container__content,
+.container__overlay,
+.container__overlaybg,
+.container_bg {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.container__inner {
+  position: relative;
+  width: 100%;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  @include onlyInDebug() {
+    background-color: gold;
+  }
+}
+
+.container__content {
+  width: $mq-contentWidth;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  //min-height: 100%; // flexbox will now center align with min-height
+  z-index: 1;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  @include mediaQueries(tablet){
+    width: $mq-contentWidth;
+  };
+  @include mediaQueries(desktop){
+    width: $mq-contentWidth;
+  };
+  @include mediaQueries(mobile){
+    //width: $mq-contentWidth; // Mobile is set as default
+  };
+  @include onlyInDebug() {
+    background-color: goldenrod;
+  }
+}
+
+.container__overlay {
+  display: block;
+  //position: absolute;
+  position: relative;
+  width: 80%;
+  //height: 1200px;
+  background-color: inherit;
+  background-image: url('/images/graphic/sun_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center top;
+  //background-attachment: fixed;
+  //left: 10%;
+  //top: 40px;
+  //margin-bottom: 100px;
+  margin: 40px auto 100px auto;
+  padding: 15px 20px;
+  z-index: 50;
+}
+
+.container__scrollarea {
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  //overflow-y: auto;
+  overflow-x: hidden;
+  display: none;
+  z-index: 50;
+
+  overflow-y: scroll;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+
+  // Hide scrollbar, but still allow scroll
+  -ms-overflow-style: none;
+  //overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    //display: none;
+    width: 0;
+  }
+}
+
+.container__bg {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  //z-index: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  &:before {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.container--list {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  //overflow-y: auto;
+  //overflow: hidden;
+
+  overflow-y: scroll;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+
+  // Permanently disable native scroll
+  overflow: hidden;
+
+  // Hide scrollbar, but still allow scroll
+  -ms-overflow-style: none;
+  //overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    //display: none;
+    width: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.container--lockscroll {
+  overflow: hidden;
+}
+
+.container__scrollarea--show {
+  display: block;
+}
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries(mobile) {
+
+}
+
+@include mediaQueries(tablet) {
+
+}
+
+@include mediaQueries(desktop) {
+
+}
+

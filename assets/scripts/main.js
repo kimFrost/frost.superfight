@@ -15,13 +15,11 @@ window.requestAnimFrame = (function () {
   var base = {
     options: {
       debug: false,
-      //feedUrl: 'feed.json',
-      feedUrl: '/api/dashboard/latest',
+      feedUrl: 'feed.json',
       updateMarkerInterval: 1000, // 1 sec
       requestInterval: 30000, // 30 sec
       checkin: {
-        hotTime: (1000 * 60 * 120), // 120 minutes
-        activeTime: (1000 * 60 * 240), // 240 minutes
+        hotTime: (1000 * 60 * 15), // 30 minutes,
         maxRadius: 30,
         minRadius: 0
       }
@@ -61,10 +59,10 @@ window.requestAnimFrame = (function () {
   function lerp(a, b, f) {
     return a + f * (b - a);
   }
-/**---------------------------------------
+  /**---------------------------------------
   DOM Constructors
 ---------------------------------------**/
-  var newRow = function(title, location, type, time, date) {
+  var newRow = function(title, location, time, date) {
     title = (title === undefined) ? '' : title;
     location = (location === undefined) ? '' : location;
     time = (time === undefined) ? '' : time;
@@ -76,10 +74,6 @@ window.requestAnimFrame = (function () {
     var cellTime = document.createElement('td');
     var cellDate = document.createElement('td');
 
-    if (!location || location.length === 0) {
-      location = type;
-    }
-
     cellTitle.textContent = title;
     cellLocation.textContent = location;
     cellTime.textContent = time;
@@ -88,7 +82,7 @@ window.requestAnimFrame = (function () {
     row.appendChild(cellTitle);
     row.appendChild(cellLocation);
     row.appendChild(cellTime);
-    //row.appendChild(cellDate);
+    row.appendChild(cellDate);
 
     return row;
   };
@@ -104,13 +98,11 @@ window.requestAnimFrame = (function () {
       var checkinDate = salesperson.checkin.date;
       checkinDate = new Date(checkinDate);
 
-      var checkinTimestamp = checkinDate.getTime();
       var checkinDay = checkinDate.getDate();
       var checkinMonth = checkinDate.getMonth();
       var checkinYear = checkinDate.getFullYear();
 
       var thisDate = new Date();
-      var thisTimestamp = thisDate.getTime();
       var thisDay = thisDate.getDate();
       var thisMonth = thisDate.getMonth();
       var thisYear = thisDate.getFullYear();
@@ -118,23 +110,13 @@ window.requestAnimFrame = (function () {
       //base.log('thisDate', thisDay + ' ' + thisMonth + ' ' + thisYear);
       //base.log('checkinDate', checkinDay + ' ' + checkinMonth + ' ' + checkinYear);
 
-      //base.log('thisTimestamp - checkinTimestamp',  salesperson.title +  ': ' +(thisTimestamp - checkinTimestamp) / 1000 / 60);
-
-      if (thisTimestamp - checkinTimestamp < base.options.checkin.activeTime) {
-        base.checkedInToday.push(salesperson);
-      }
-      else {
-        base.checkedInBefore.push(salesperson);
-      }
-
-      /*
       if (thisDay === checkinDay && thisMonth === checkinMonth && thisYear === checkinYear) {
         base.checkedInToday.push(salesperson);
       }
       else {
         base.checkedInBefore.push(salesperson);
       }
-      */
+
     }
   };
   base.updateDom = function() {
@@ -159,22 +141,15 @@ window.requestAnimFrame = (function () {
     }
     for (i=0; i<base.checkedInBefore.length;i++) {
       salesperson = base.checkedInBefore[i];
-      /*
       row = parsePerson(salesperson);
       containerNotCheckedin.appendChild(row);
-      */
-      var bubble = document.createElement('div');
-      bubble.className = 'dashboard__bubble';
-      bubble.textContent = salesperson.title;
-      containerNotCheckedin.appendChild(bubble);
     }
     function parsePerson(salesperson) {
       var data;
       var date = new Date(salesperson.checkin.date);
       var hours = date.getHours();
       var minutes = date.getMinutes();
-      var day = date.getDate();
-
+      var day = date.getDay();
       var month = date.getMonth() + 1;
       if (hours < 10) {
         hours = '0' + hours.toString();
@@ -190,7 +165,7 @@ window.requestAnimFrame = (function () {
       }
       var time = hours + '.' + minutes;
       date = day + '.' + month;
-      data = newRow(salesperson.title, salesperson.checkin.location.title, salesperson.checkin.location.type, time, date);
+      data = newRow(salesperson.title, salesperson.checkin.location.title, time, date);
       return data;
     }
   };
@@ -204,9 +179,7 @@ window.requestAnimFrame = (function () {
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
         var data = JSON.parse(xmlhttp.responseText);
         base.log('data', data);
-        //base.salespersons = data.salespersons;
-        base.salespersons = parseData(data);
-        base.salespersons = sortData(base.salespersons);
+        base.salespersons = data.salespersons;
         base.parseSalespersons();
         base.updateDom();
         base.createSalesPersons();
@@ -215,64 +188,6 @@ window.requestAnimFrame = (function () {
     xmlhttp.open('GET', feedUrl, true);
     xmlhttp.send();
   };
-  function parseData(data) {
-    var newData = [];
-    for (var i=0; i < data.length; i++) {
-      var person = data[i];
-      newData.push({
-        id: person.Id,
-        name: person.SalesPersonName,
-        //title: person.SalesPersonId,
-        title: person.SalesPersonUserName.toUpperCase(),
-        checkin: {
-          date: new Date(person.RegTime).getTime(),
-          location: {
-            title: person.Location,
-            type: person.VisitType,
-            long: Number(person.LocationLongitude),
-            lat: Number(person.LocationLatitude)
-          }
-        }
-      });
-    }
-    /*
-    var asdsad = {
-      "id": 1,
-      "title": "SSØ",
-      "checkin": {
-        "date": 1422540115287,
-        "location": {
-          "title": "Bygma - Aarhus",
-          "long": 9.695435,
-          "lat": 55.798193
-        }
-      }
-    };
-    */
-    return newData;
-  }
-  function sortData(data) {
-    var newData = [];
-    var pushedIndexes = [];
-    for (var i=0; i < data.length; i++) {
-      var pushPerson;
-      var pushIndex;
-      var largestDate = -9999999999999999999; // just need to lower than the oldest unix timestamp
-      for (var ii=0; ii < data.length; ii++) {
-        var person = data[ii];
-        if (person.checkin.date >= largestDate && pushedIndexes.indexOf(ii) === -1) {
-          largestDate = person.checkin.date;
-          pushPerson = person;
-          pushIndex = ii;
-        }
-      }
-      //data.slice(pushIndex, 1);
-      //newData[i] = pushPerson;
-      pushedIndexes.push(pushIndex);
-      newData.push(pushPerson);
-    }
-    return newData;
-  }
 /**---------------------------------------
   Map functions
 ---------------------------------------**/
@@ -282,8 +197,8 @@ window.requestAnimFrame = (function () {
     for (var i=0; i<base.checkedInToday.length; i++) {
       var salesPerson = base.checkedInToday[i];
       var iconFeature = new ol.Feature({
-        //geometry: new ol.geom.Point(ol.proj.transform([Math.random()*360-180, Math.random()*180-90], 'EPSG:4326', 'EPSG:3857')),
-        geometry: new ol.geom.Point(ol.proj.transform([salesPerson.checkin.location.long, salesPerson.checkin.location.lat], 'EPSG:4326', 'EPSG:3857')),
+        //geometry: new ol.geom.Point(ol.proj.transform([Math.random()*360-180, Math.random()*180-90], 'EPSG:4326',   'EPSG:3857')),
+        geometry: new ol.geom.Point(ol.proj.transform([salesPerson.checkin.location.long, salesPerson.checkin.location.lat], 'EPSG:4326',   'EPSG:3857')),
         //name: 'Null Island ' + i,
         id: salesPerson.id,
         title: salesPerson.title,
@@ -317,8 +232,6 @@ window.requestAnimFrame = (function () {
       }
       */
 
-      /*
-      base.log('getCoordinates', feature.getGeometry().getCoordinates());
       base.log('hotProcent', hotProcent);
       base.log('checkinAge', checkinAge);
       base.log('hotTime', base.options.checkin.hotTime);
@@ -326,15 +239,13 @@ window.requestAnimFrame = (function () {
       base.log('hotTime', base.options.checkin.maxRadius);
       base.log('radius', radius);
       base.log('radius % 2', radius % 2);
-      */
 
 
       var styleBackground = new ol.style.Style({
         image: new ol.style.Circle({
           radius: radius + 25,
           fill: new ol.style.Fill({
-            //color: 'rgba(255, 255, 255, 0.15)'
-            color: 'rgba(0, 0, 0, 0.35)'
+            color: 'rgba(255, 255, 255, 0.15)'
           })
         })
       });
@@ -446,7 +357,7 @@ window.requestAnimFrame = (function () {
       base.updateSalesPersons();
     }, base.options.updateMarkerInterval);
     setInterval(function() {
-      getFeed();
+      //getFeed();
     }, base.options.requestInterval);
   };
   initiate();

@@ -1,0 +1,207 @@
+
+// DESCRIPTION
+
+
+// NOTES
+
+
+// PARAMETERS
+$_glassesWidth: image-width('../images/graphic/glasses.png');
+$_glassesHeight: image-height('../images/graphic/glasses.png');
+$_glassesRatio: ($_glassesWidth / $_glassesHeight);
+
+// BLOCK
+.cup {
+  display: block;
+  width: 100%;
+  //padding-bottom: 100%;
+  padding-bottom: 90%;
+  text-align: center;
+  position: relative;
+
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+
+  &:before {
+    @include border-radius(0% 0% 50% 50% / 0% 0% 100% 100%);
+    //content: "";
+    //display: block;
+    width: 100%;
+    padding-bottom: 12%;
+    position: absolute;
+    top: 100%;
+    background-color: $color_white;
+  }
+  &:after {
+    @include scale(1.0);
+    @include transition(all 300ms ease);
+    //@include background-image(radial-gradient(center center, ellipse contain, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.0) 100%));
+    //@include background-image(radial-gradient(center center, ellipse contain, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.0) 100%));
+
+    background: transparent; /* fallback for non-supporting browsers */
+    //background-image: -webkit-gradient(radial, center center, 0, center center, 141, from(black), to(white), color-stop(25%, blue), color-stop(40%, green), color-stop(60%, red), color-stop(80%, purple)); /* old WebKit Syntax */
+    background-image: -webkit-radial-gradient(center center, ellipse contain, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.0) 100%); /* New WebKit syntax */
+    background-image: -moz-radial-gradient(center center, ellipse contain, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.0) 100%);
+    background-image: -ms-radial-gradient(center center, ellipse contain, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.0) 100%); /* IE10+ */
+    background-image: -o-radial-gradient(center center, ellipse contain, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.0) 100%); /* Opera (13?) */
+
+    content: "";
+    display: block;
+    opacity: 1.0;
+    position: absolute;
+    top: calc(100% - 23%);
+    width: 130%;
+    left: -15%;
+    padding-bottom: 27%;
+    z-index: 0;
+  }
+}
+
+.cup,
+.cup__goblet,
+.cup__reward {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.cup__goblet {
+  @include transform-origin(100%, 100%);
+  @include transition(transform 300ms ease);
+  @include transform(translate(0%, 0%) rotate(0deg));
+  @include border-radius(60% 60% 50% 50% / 100% 100% 15% 15%);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: hidden;
+  background-color: $color_white;
+  //border-bottom: 1px solid rgba($color_black, 0.2);
+
+  //@include border-radius(50% 50% 0% 0% / 100% 100% 0% 0%);
+
+  //@include background-image(linear-gradient(120deg, #2ac363, #cd8c14, #9c4cc2));
+  //@include background-image(radial-gradient(100% 100%, white 10px, black 100%));
+  //@include background-image(radial-gradient(65% 30%, ellipse cover, white 10px, #888888 100%));
+  //@include background(radial-gradient(65% 30%, ellipse cover, white 10px, #888888 100%));
+
+  background-image: -webkit-radial-gradient(65% 30%, ellipse cover, white 10px, #888888 100%); /* New WebKit syntax */
+  background-image: -moz-radial-gradient(65% 30%, ellipse cover, white 10px, #888888 100%);
+  background-image: -ms-radial-gradient(65% 30%, ellipse cover, white 10px, #888888 100%); /* IE10+ */
+  background-image: -o-radial-gradient(65% 30%, ellipse cover, white 10px, #888888 100%); /* Opera (13?) */
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    background-image: url('/images/graphic/questionicon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    //width: image-width('../images/graphic/questionicon.png');
+    //height: image-height('../images/graphic/questionicon.png');
+    width: 40%;
+    height: 40%;
+    z-index: 20;
+    opacity: 0;
+  }
+}
+
+.cup__reward {
+  display: block;
+  position: absolute;
+  width: 40%;
+  bottom: 10%;
+  left: 30%;
+  z-index: 1;
+  padding-bottom: (100% / $_glassesRatio * 0.40);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  &:after {
+    @include transition(opacity 300ms ease);
+    content: "";
+    display: block;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color_black;
+    opacity: 0.8;
+    z-index: 2;
+    //background-blend-mode: overlay;
+  }
+}
+
+
+//--- MODIFIERS -------------------------------------------------------//
+
+.cup--unlocked {
+  &:focus,
+  &:hover {
+    .cup__goblet {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color_eggshell;
+        opacity: 0.3;
+      }
+    }
+  }
+  .cup__goblet {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.cup--open {
+  .cup__goblet {
+    @include transform(translate(0%, -40%) rotate(15deg));
+  }
+  .cup__reward {
+    &:after {
+      opacity: 0;
+    }
+  }
+  &:after {
+    @include scale(0.7);
+    opacity: 0.5;
+  }
+}
+
+.cup--hasreward {
+  .cup__reward {
+    background-image: url('/images/graphic/glasses.png');
+  }
+}
+
+
+
+//--- MEDIA QUERIES -------------------------------------------------------//

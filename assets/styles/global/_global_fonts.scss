@@ -1,0 +1,100 @@
+
+
+/* Global font Calculation */
+// Based on typeplate
+
+$line-height: 1.65;
+$font-size: 112.5; // percentage value (16 * 112.5% = 18px)
+$font-base: 16 * ($font-size/100); // converts our percentage to a pixel value
+$measure: $font-base * $line-height;
+
+$type-scale-unit-value: rem;
+
+$alpha: 11;
+$beta: 12;
+$gamma: 14;
+$jimmi: 15;
+$delta: 16;
+$epsilon: 18;
+$zeta: 20;
+$eta: 24;
+$theta: 32;
+$iota: 48;
+$kappa: 64;
+
+$fontsizes: alpha $alpha, beta $beta, gamma $gamma, jimmi $jimmi, delta $delta, epsilon $epsilon, zeta $zeta, eta $eta, theta $theta, iota $iota, kappa $kappa;
+
+@mixin modular-scale($scale, $base, $value, $measure:"", $lineHeightMultiplier:1.0) {
+	font-size: $scale#{px};
+	font-size: modular-scale($scale, $base, $value);
+	@if $lineHeightMultiplier != 0 {
+		line-height: ($scale*$lineHeightMultiplier)#{px};
+		line-height: modular-scale($scale*$lineHeightMultiplier, $base, $value);
+	}
+}
+@function modular-scale($scale, $base, $value) {
+	// divide a given font-size by base font-size & return a relative em value
+	@return ($scale/$base)#{$value};
+}
+@mixin fontSize($fontsizename:gamma,$lineHeightMultiplier: 1.0) {
+	& {
+		//@extend %#{$fontsizename};
+	}
+	& {
+		@for $i from 1 through length($fontsizes) {
+			$size : nth($fontsizes,$i);
+			$sizeLabel : nth($size, 1);
+			$sizeNumber : nth($size, 2);
+			@if $sizeLabel == $fontsizename {
+				@include modular-scale($sizeNumber, $font-base, '#{$type-scale-unit-value}', $measure, $lineHeightMultiplier);
+			}
+		}
+	}
+}
+@function returnFontSize($fontsizename:gamma,$type:px,$add:0,$multiple:1) {
+	@for $i from 1 through length($fontsizes) {
+		$size : nth($fontsizes,$i);
+		$sizeLabel : nth($size, 1);
+		$sizeNumber : nth($size, 2);
+		@if $sizeLabel == $fontsizename {
+			@if $type == px {
+				@return ($sizeNumber * $multiple) + $add + px;
+			}
+		}
+	}
+}
+@function returnHalfFontSize($fontsizename:gamma,$type:px,$add:0,$multiple:1) {
+	@for $i from 1 through length($fontsizes) {
+		$size : nth($fontsizes,$i);
+		$sizeLabel : nth($size, 1);
+		$sizeNumber : nth($size, 2);
+		$halfSizeNumber: $sizeNumber / 2;
+		@if $sizeLabel == $fontsizename {
+			@if $type == px {
+				@return ($halfSizeNumber * $multiple) + $add + px;
+			}
+		}
+	}
+}
+
+// Set base font size, from which all will scale
+html {
+	font-size: percentage($font-size / 100) !important;
+	//@include mediaQueries(tablet){
+		//font-size: percentage($font-size / 100) * 0.9 !important;
+	//}
+	//@include mediaQueries(mobile){
+		//font-size: percentage($font-size / 100) * 0.75 !important;
+  //}
+}
+
+//@extend %alpha;
+//@extend %beta;
+//@extend %gamma;
+//@extend %delta;
+//@extend %epsilon;
+//@extend %zeta;
+//@extend %eta;
+//@extend %theta;
+//@extend %iota;
+//@extend %kappa;

@@ -1,0 +1,97 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.dashboard {
+  display: block;
+  position: absolute;
+  top: 30px;
+  right: 105px;
+  width: 750px;
+}
+
+.dashboard,
+.dashboard__table,
+.dashboard__headline,
+.dashboard__row {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+  // Elements spacing rule
+  & + * {
+    margin-top: 20px;
+  }
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.dashboard__table {
+  width: 100%;
+  background-color: $color_white;
+  color: $color_black;
+  font-family: 'EurostileLTW01-Cn';
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  border-collapse: collapse;
+  th,
+  td {
+    margin: 0;
+    text-align: center;
+    padding: 14px 20px;
+    &:nth-child(2) {
+      text-align: left;
+      width: 100%; // Force to fill as mush as possible
+    }
+    & + td,
+    & + th {
+      border-left: 1px solid $color_black;
+    }
+  }
+  th {
+    background-color: $color_logo;
+    color: $color_white;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-family: 'Eurostile LT W01 Bold';
+  }
+  td {
+
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background-color: $color_almostwhite;
+    }
+  }
+}
+
+.dashboard__headline {
+  font-size: 30px;
+  line-height: 30px;
+  font-family: 'EurostileLTW01-Cn';
+  width: 100%;
+  margin-top: 40px;
+  display: block;
+  text-transform: uppercase;
+  color: $color_white;
+  & > strong {
+    font-family: 'Eurostile LT W01 Bold';
+    font-weight: normal;
+  }
+}
+
+.dashboard__row {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  &:nth-child(odd) {
+    background-color: $color_almostwhite;
+  }
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
