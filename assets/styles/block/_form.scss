@@ -28,6 +28,24 @@
   }
 }
 
+//--- PLACEHOLDERS ----------------------------------------------------------//
+
+%form__input {
+  @include border-radius(10px 10px 10px 10px);
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  background-color: $color_white;
+  border: 1px solid $color_darkgrey;
+  &.ng-invalid-required {
+    &.ng-dirty {
+      border: 1px solid red;
+    }
+  }
+}
+
+
 //--- ELEMENTS ----------------------------------------------------------//
 
 .form__line {
@@ -50,19 +68,12 @@
 }
 
 .form__input {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 6px 7px 3px 7px;
-  border: none;
-  & + & {
+  @extend %form__input;
+}
 
-  }
-  &.ng-invalid-required {
-    &.ng-dirty {
-      border: 1px solid red;
-    }
-  }
+.form__textarea {
+  @extend %form__input;
+  min-height: 400px;
 }
 
 .form__button {
