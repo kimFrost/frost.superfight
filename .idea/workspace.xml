@@ -49,8 +49,8 @@
       <file leaf-file-name="addcard.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/addcard.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35146898" vertical-offset="0" max-vertical-offset="919">
-              <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.04134929" vertical-offset="0" max-vertical-offset="919">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -794,8 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/addcard.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35146898" vertical-offset="0" max-vertical-offset="919">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.04134929" vertical-offset="0" max-vertical-offset="919">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
           <folding />
         </state>
       </provider>
