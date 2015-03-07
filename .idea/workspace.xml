@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd78c737-fe00-496e-bd34-50a2f252233d" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\gulpfile.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\catchgame.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\controllers\catchgame.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\controllers\catchgame.controller_asdasdas.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\controllers\main.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\controllers\slides.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\directives\audiobutton.directive.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\directives\audioplayer.directive.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\directives\competitionoverlay.directive.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\directives\cupgame.directive.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\directives\tilbudswizard.directive.sticky.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\directives\tilbudswizard.directive.stickycontainer.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\services\competition.service.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\frost.superfight\assets\scripts\services\tracking.service.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addcard.jade" afterPath="$PROJECT_DIR$/views/addcard.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/scripts/app.js" afterPath="$PROJECT_DIR$/assets/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/scripts/main.js" afterPath="$PROJECT_DIR$/assets/scripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/package.json" afterPath="$PROJECT_DIR$/assets/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="dd78c737-fe00-496e-bd34-50a2f252233d" name="Default" comment="" />
     <ignored path="frost.superfight.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
