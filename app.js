@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, '/')));
 /*
  var index = require('./routes/index');
  var users = require('./routes/users');
- */
+*/
 
 /*
  app.use('/', index);
@@ -43,25 +43,20 @@ app.get('/', taskList.showTasks.bind(taskList));
 // POST
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
-//app.post('/addcard', taskList.addCard.bind(taskList));
+app.post('/addcard', taskList.addCard.bind(taskList));
 
 
+
+/*
 app.post('/api/addcard', function(req, res) {
 	var data = req.body;
-	/*
-	res.json({
-		status: 'blahh',
-		req: req,
-		res: res
-	});
-	*/
 	res.send({
 		status: 200,
 		msg: data
 	});
 	//res.send('asdasdasd');
 });
-
+*/
 
 
 

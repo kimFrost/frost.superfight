@@ -45,11 +45,6 @@
 			console.log('data', formdata);
 			formdata.pending = true;
 
-			var card = {
-				type: formdata.type,
-				text: formdata.text
-			};
-
 			var req = {
 				method: 'POST',
 				url: '/api/addcard',
@@ -67,6 +62,8 @@
 					console.log('status', status);
 					formdata.pending = false;
 				});
+
+			// try .bind(data) -> this -> data
 		}
 
 		function setStorage(state) {
