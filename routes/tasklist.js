@@ -71,5 +71,9 @@ TaskList.prototype = {
 		});
 		// Redirect to root after it has been send to db
 		//res.redirect('/');
+		res.send({
+			status: 200,
+			msg: 'card saved'
+		});
 	}
 };
