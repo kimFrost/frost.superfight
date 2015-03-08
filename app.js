@@ -47,7 +47,7 @@ app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
 app.get('/api/addcard', function(req, res) {
-	res.send({
+	res.json({
 		status: 'blahh',
 		req: req,
 		res: res
