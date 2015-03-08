@@ -47,6 +47,8 @@ app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
 app.post('/api/addcard', function(req, res) {
+	var data = reg.body;
+
 	/*
 	res.json({
 		status: 'blahh',
@@ -56,12 +58,7 @@ app.post('/api/addcard', function(req, res) {
 	*/
 	res.send({
 		status: 200,
-		msg: req.body,
-		msg1: req.body.type,
-		msg2: req.body.name,
-		msg3: req.name,
-		msg4: req.type,
-		msg5: 'temp'
+		msg: data
 	});
 	//res.send('asdasdasd');
 });
