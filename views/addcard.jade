@@ -1,18 +1,19 @@
 extends layout
 
 block append content
-	form.form(action="/addcard", method="post")
+	//form.form(action="/addcard", method="post")
+	form.form(name="cardform" novalidate, data-ng-controller="addCardCtrl as addcard", data-ng-submit="addcard.postCard(cardform)")
 
 		label.form__label character
-		input.form__input(type="radio", name="type", value="character", checked="checked")
+		input.form__input(type="radio", name="type", value="character", checked="checked", data-ng-model="cardform.type")
 		label.form__label trait
-		input.form__input(type="radio", name="type", value="trait")
+		input.form__input(type="radio", name="type", value="trait", data-ng-model="cardform.type")
 		label.form__label scenario
-		input.form__input(type="radio", name="type", value="scenario")
+		input.form__input(type="radio", name="type", value="scenario", data-ng-model="cardform.type")
 
-		//input.form__input(type="text", name="name", placeholder="Card name")
+		//input.form__input(type="text", name="name", placeholder="Card name", data-ng-model="cardform.name")
 
-		textarea.form__textarea(placeholder="Card text", name="text")
-		//textarea.form__input(placeholder="Alt. text", name="altText")
+		textarea.form__textarea(placeholder="Card text", name="text", data-ng-model="cardform.text")
+		//textarea.form__input(placeholder="Alt. text", name="altText", data-ng-model="cardform.altText")
 
 		input.form__button(type="submit", value="Add card")

@@ -3,8 +3,12 @@ html(data-ng-app="noerd.BrugSkallen")
 	head
 		title= title
 		link(rel='stylesheet', href='/css/main.css')
+		script(src="/script/angular.min.js")
 	body
 		div.container
 			div.container__content
 				div.container__inner
 					block content
+		script(src="/script/app.js")
+		script(src="/script/controllers/addcard.controller.js")
+
