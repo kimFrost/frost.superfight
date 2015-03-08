@@ -51,7 +51,7 @@
 
 			var req = {
 				method: 'POST',
-				url: '/addcard',
+				url: '/api/addcard',
 				data: data
 			};
 
