@@ -47,11 +47,14 @@ app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
 app.get('/api/addcard', function(req, res) {
+	/*
 	res.json({
 		status: 'blahh',
 		req: req,
 		res: res
 	});
+	*/
+	res.send('asdasdasd');
 });
 
 
