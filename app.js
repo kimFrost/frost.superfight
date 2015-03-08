@@ -60,7 +60,8 @@ app.get('/api/addcard', function(req, res) {
 		msg1: req.body.type,
 		msg2: req.body.name,
 		msg3: req.name,
-		msg4: req.type
+		msg4: req.type,
+		msg5: 'temp'
 	});
 	//res.send('asdasdasd');
 });
