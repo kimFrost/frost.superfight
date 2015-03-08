@@ -57,10 +57,12 @@
 
 			$http(req)
 				.success(function (data, status, headers, config) {
-					console.log('success');
+					console.log('success', data);
+					console.log('status', status);
 				})
 				.error(function (data, status, headers, config) {
-					console.log('error');
+					console.log('error', data);
+					console.log('status', status);
 				});
 		}
 
