@@ -45,7 +45,8 @@ app.get('/', taskList.showTasks.bind(taskList));
 // POST
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
-app.post('/addcard', taskList.addCard.bind(taskList));
+//app.post('/addcard', taskList.addCard.bind(taskList));
+app.get('/addcard', taskList.addCard.bind(taskList));
 
 
 
