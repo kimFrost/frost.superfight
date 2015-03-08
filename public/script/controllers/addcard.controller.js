@@ -50,7 +50,7 @@
 			};
 
 			var req = {
-				method: 'GET',
+				method: 'POST',
 				url: '/addcard',
 				data: data
 			};
