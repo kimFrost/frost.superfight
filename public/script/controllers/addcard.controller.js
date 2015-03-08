@@ -50,12 +50,12 @@
 			};
 
 			var req = {
-				method: 'POST',
+				method: 'GET',
 				url: '/addcard',
 				data: data
 			};
 
-			$http.post(req)
+			$http(req)
 				.success(function (data, status, headers, config) {
 					console.log('success');
 				})

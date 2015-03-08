@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dd78c737-fe00-496e-bd34-50a2f252233d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/script/controllers/addcard.controller.js" afterPath="$PROJECT_DIR$/public/script/controllers/addcard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tasklist.js" afterPath="$PROJECT_DIR$/routes/tasklist.js" />
     </list>
     <ignored path="frost.superfight.iws" />
     <ignored path=".idea/workspace.xml" />
