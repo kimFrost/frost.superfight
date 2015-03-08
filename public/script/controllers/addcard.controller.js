@@ -41,31 +41,31 @@
 		 FUNCTION LIBRARY
 		 ---------------------------------------**/
 
-		function postCard(data) {
-			console.log('data', data);
-			data.pending = true;
+		function postCard(formdata) {
+			console.log('data', formdata);
+			formdata.pending = true;
 
 			var card = {
-				type: data.type,
-				text: data.text
+				type: formdata.type,
+				text: formdata.text
 			};
 
 			var req = {
 				method: 'POST',
 				url: '/api/addcard',
-				data: data
+				data: formdata
 			};
 
 			$http(req)
 				.success(function (data, status, headers, config) {
 					console.log('success', data);
 					console.log('status', status);
-					data.pending = false;
+					formdata.pending = false;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
 					console.log('status', status);
-					data.pending = false;
+					formdata.pending = false;
 				});
 		}
 
