@@ -44,6 +44,8 @@
 		function postCard(formdata) {
 			console.log('data', formdata);
 			formdata.pending = true;
+			formdata.success = false;
+			formdata.error = false;
 
 			var req = {
 				method: 'POST',
@@ -56,11 +58,15 @@
 					console.log('success', data);
 					console.log('status', status);
 					formdata.pending = false;
+					formdata.success = true;
+					formdata.error = false;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
 					console.log('status', status);
 					formdata.pending = false;
+					formdata.success = false;
+					formdata.error = true;
 				});
 
 			// try .bind(data) -> this -> data

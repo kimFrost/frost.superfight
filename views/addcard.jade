@@ -4,7 +4,9 @@ block append content
 	//form.form(action="/addcard", method="post")
 	form.form(name="cardform" novalidate, data-ng-controller="AddCardCtrl as addcard", data-ng-submit="addcard.postCard(cardform)")
 
-		div(data-ng-show="cardform.pending") Pending
+		div(data-ng-show="cardform.pending") Request pending...
+		div(data-ng-show="cardform.success") Card successfully created
+		div(data-ng-show="cardform.error") An error occurred
 
 		label.form__label character
 		input.form__input(type="radio", name="type", value="character", checked="checked", data-ng-model="cardform.type")
