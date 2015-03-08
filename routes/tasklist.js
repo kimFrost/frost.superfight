@@ -70,6 +70,6 @@ TaskList.prototype = {
 			}
 		});
 		// Redirect to root after it has been send to db
-		res.redirect('/');
+		//res.redirect('/');
 	}
 };
