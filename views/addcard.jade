@@ -2,7 +2,7 @@ extends layout
 
 block append content
 	//form.form(action="/addcard", method="post")
-	form.form(name="cardform" novalidate, data-ng-controller="addCardCtrl as addcard", data-ng-submit="addcard.postCard(cardform)")
+	form.form(name="cardform" novalidate, data-ng-controller="AddCardCtrl as addcard", data-ng-submit="addcard.postCard(cardform)")
 
 		label.form__label character
 		input.form__input(type="radio", name="type", value="character", checked="checked", data-ng-model="cardform.type")
