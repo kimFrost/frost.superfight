@@ -20,14 +20,6 @@
 	-webkit-box-sizing: border-box;
 }
 
-.form__input,
-.form__textarea,
-.form__button {
-  & + * {
-    margin-top: 10px;
-  }
-}
-
 //--- PLACEHOLDERS ----------------------------------------------------------//
 
 %form__input {
@@ -101,6 +93,17 @@
   position: relative;
   z-index: -1;
   color: red;
+}
+
+// Spacing rules
+
+
+.form__input,
+.form__textarea,
+.form__button {
+  & + * {
+    margin-top: 10px;
+  }
 }
 
 //--- MODIFIERS ----------------------------------------------------------//
