@@ -56,7 +56,11 @@ app.get('/api/addcard', function(req, res) {
 	*/
 	res.send({
 		status: 200,
-		msg: req.body.data
+		msg: req.body,
+		msg1: req.body.type,
+		msg2: req.body.name,
+		msg3: req.name,
+		msg4: req.type
 	});
 	//res.send('asdasdasd');
 });
