@@ -10,7 +10,7 @@
  * Main module of the application.
  */
 angular
-  .module('frost.superfight', [])
+  .module('frost.Superfight', [])
   .run(function () {
     console.log('Main Application Run()');
   });

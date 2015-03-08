@@ -21,7 +21,7 @@
 	 */
 
     angular
-		.module('frost.superfight')
+		.module('frost.Superfight')
 		.controller('AddCardCtrl', AddCardCtrl);
 
     /* @ngInject */
