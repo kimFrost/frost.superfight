@@ -48,7 +48,7 @@ app.post('/completetask', taskList.completeTask.bind(taskList));
 //app.post('/addcard', taskList.addCard.bind(taskList));
 
 
-app.get('/addcard', function(req, res) {
+app.post('/addcard', function(req, res) {
 	res.send('blahh');
 });
 
