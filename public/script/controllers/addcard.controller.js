@@ -43,6 +43,7 @@
 
 		function postCard(data) {
 			console.log('data', data);
+			data.pending = true;
 
 			var card = {
 				type: data.type,
@@ -59,10 +60,12 @@
 				.success(function (data, status, headers, config) {
 					console.log('success', data);
 					console.log('status', status);
+					data.pending = false;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
 					console.log('status', status);
+					data.pending = false;
 				});
 		}
 
