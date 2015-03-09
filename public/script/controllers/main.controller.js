@@ -31,6 +31,7 @@
 		main.options = {
 			debug: false
 		};
+		main.cards = getCards();
 		main.states = {
 			pending: false,
 			success: false,
@@ -99,8 +100,10 @@
 		}
 
 		/**---------------------------------------
-			BINDINGS
-		---------------------------------------**/
+		 BINDINGS
+		 ---------------------------------------**/
+
+
 
 
 	}
