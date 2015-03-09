@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 module.exports = TaskList;
 
 function TaskList(connectionString) {
-	//mongoose.connect(connectionString);
+	mongoose.connect(connectionString);
 }
 
 var db = mongoose.connection;
