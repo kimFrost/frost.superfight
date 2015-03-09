@@ -10,7 +10,8 @@
 }
 
 .deck,
-.deck__card {
+.deck__card,
+.deck__cardinner {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -22,13 +23,22 @@
   @include transition(all 300ms ease);
   display: block;
   float: left;
-  width: 33%;
-  padding-bottom: 140%;
+  width: (100% / 3);
+  padding-bottom: 50%;
   overflow: hidden;
-
+  background-color: $color_white;
+  border: 1px solid darken($color_white, 5%);
   & + & {
-    margin-left: 5px;
+    //margin-left: 5px;
   }
+}
+
+.deck__cardinner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 10px;
 }
 
 //--- MODIFIERS ----------------------------------------------------------//
