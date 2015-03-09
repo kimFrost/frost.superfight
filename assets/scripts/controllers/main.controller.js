@@ -45,6 +45,7 @@
 		 ---------------------------------------**/
 
 		function getCards() {
+			console.log('getCards');
 			main.states.pending = true;
 			main.states.success = false;
 			main.states.error = false;
