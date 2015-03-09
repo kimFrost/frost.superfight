@@ -176,7 +176,7 @@ html {
 @media all and (min-width: 768px) and (max-width: 1024px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003202}}
   .container__content {
-    width: 560px;
+    width: 100%;
   }
 }
 @media all and (min-width: 1025px) {

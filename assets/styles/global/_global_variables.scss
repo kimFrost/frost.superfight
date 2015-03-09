@@ -26,7 +26,8 @@ $color_almostwhite: #f7f8f8;
 
 // Media Queries, Labels and Content widths
 @include newMediaQuerie((name: mobile, min-width: 1px, max-width: 767px, contentWidth: 100%, default: true));
-@include newMediaQuerie((name: tablet, min-width: 768px, max-width: 1024px, contentWidth: 560px));
+//@include newMediaQuerie((name: tablet, min-width: 768px, max-width: 1024px, contentWidth: 560px));
+@include newMediaQuerie((name: tablet, min-width: 768px, max-width: 1024px, contentWidth: 100%));
 @include newMediaQuerie((name: desktop, min-width: 1025px, contentWidth: 960px));
 
 
