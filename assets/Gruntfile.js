@@ -74,14 +74,14 @@ module.exports = function(grunt) {
           src: [
             '.tmp',
             '.sass-cache',
-            '../templates',
-            '../images',
-            '../css/fonts',
-            '../css/libs.min.css',
-            '../css/main.min.css',
-            '../scripts/ie-shim.min.js',
-            '../scripts/scripts.min.js',
-            '../scripts/libs.min.js'
+            '../public/templates',
+            '../public/images',
+            '../public/css/fonts',
+            '../public/css/libs.min.css',
+            '../public/css/main.min.css',
+            '../public/scripts/ie-shim.min.js',
+            '../public/scripts/scripts.min.js',
+            '../public/scripts/libs.min.js'
           ]
         }]
       },
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
       options: {
         sassDir: './styles',
         sourcemap: true,
-        cssDir: '../css',
+        cssDir: '../public/css',
         generatedImagesDir: '.tmp/images/sprites',
         imagesDir: './images',
         javascriptsDir: './scripts',
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
       },
       deploy: {
         options: {
-          generatedImagesDir: '../images/sprites',
+          generatedImagesDir: '../public/images/sprites',
           httpGeneratedImagesPath: '/images/sprites',
           httpFontsPath: '/css/fonts',
           force: true
@@ -186,7 +186,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: './images',
           src: '{,*/}*.svg',
-          dest: '../images'
+          dest: '../public/images'
         }]
       }
     },
@@ -204,7 +204,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '../',
           src: ['templates/{,*/}*.html'],
-          dest: '../'
+          dest: '../public'
         }]
       }
     },
@@ -239,7 +239,7 @@ module.exports = function(grunt) {
           }, {
             expand: true,
             cwd: '.tmp/images',
-            dest: '../images',
+            dest: '../public/images',
             src: ['sprites/*']
           }]
       },
@@ -281,9 +281,9 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src: [
-            '../css/{,*/}*.css',
+            '../public/css/{,*/}*.css',
             '../templates/{,*/}*.html',
-            './scripts/{,*/}*.js',
+            './public/scripts/{,*/}*.js',
             '../Views/{,*/}*.cshtml'
           ]
         },
