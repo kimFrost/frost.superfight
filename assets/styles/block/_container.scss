@@ -77,15 +77,6 @@ $__gutterWidth: 20px;
   -webkit-align-items: center;
   align-items: center;
 
-  @include mediaQueries(tablet){
-    width: $mq-contentWidth;
-  };
-  @include mediaQueries(desktop){
-    width: $mq-contentWidth;
-  };
-  @include mediaQueries(mobile){
-    //width: $mq-contentWidth; // Mobile is set as default
-  };
   @include onlyInDebug() {
     background-color: goldenrod;
   }
@@ -207,15 +198,14 @@ $__gutterWidth: 20px;
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 
-@include mediaQueries(mobile) {
-
-}
-
 @include mediaQueries(tablet) {
-
+  .container__content {
+    width: $mq-contentWidth;
+  }
 }
 
 @include mediaQueries(desktop) {
-
+  .container__content {
+    width: $mq-contentWidth;
+  }
 }
-

@@ -74,20 +74,8 @@ html {
   -webkit-align-items: center;
   align-items: center;
 }
-@media all and (min-width: 768px) and (max-width: 1024px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\0000360}}
-  .container__content {
-    width: 560px;
-  }
-}
-@media all and (min-width: 1025px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\0000360}}
-  .container__content {
-    width: 960px;
-  }
-}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\0000385}}
 .container__overlay {
   display: block;
   position: relative;
@@ -102,7 +90,7 @@ html {
   z-index: 50;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003105}}
 .container__scrollarea {
   position: absolute;
   position: fixed;
@@ -118,12 +106,12 @@ html {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003133}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003124}}
 .container__scrollarea::-webkit-scrollbar {
   width: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003139}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003130}}
 .container__bg {
   display: block;
   position: absolute;
@@ -136,7 +124,7 @@ html {
   background-size: cover;
   background-position: center center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003151}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003142}}
 .container__bg:before {
   display: none;
   content: "";
@@ -151,7 +139,7 @@ html {
   background-position: center center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003159}}
 .container--list {
   position: static;
   display: block;
@@ -164,27 +152,39 @@ html {
   overflow: hidden;
   -ms-overflow-style: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003178}}
 .container--list::-webkit-scrollbar {
   width: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003192}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003183}}
 .container--list:after {
   content: "";
   display: block;
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003199}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003190}}
 .container--lockscroll {
   overflow: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003203}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003194}}
 .container__scrollarea--show {
   display: block;
 }
 
+@media all and (min-width: 768px) and (max-width: 1024px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003202}}
+  .container__content {
+    width: 560px;
+  }
+}
+@media all and (min-width: 1025px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_container\.scss}line{font-family:\00003208}}
+  .container__content {
+    width: 960px;
+  }
+}
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\000036}}
 .form {
   display: block;
