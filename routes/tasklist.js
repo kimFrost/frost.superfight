@@ -4,11 +4,17 @@ var mongoose = require('mongoose'),
 
 module.exports = TaskList;
 
+var db;
+
 function TaskList(connectionString) {
 	mongoose.connect(connectionString);
+	db = mongoose.connection;
+	//console.log(db);
+	db.on('error', console.error.bind(console, 'connection error:'));
+	db.once('open', function (callback) {
+		console.log('Connection to db is open');
+	});
 }
-
-var db = mongoose.connection;
 
 TaskList.prototype = {
 
