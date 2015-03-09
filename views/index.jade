@@ -6,9 +6,10 @@ block append content
 		div.container__content
 			div.container__inner content
 
-	div.menu
+	div.menu(data-ng-controller="MainCtrl as main")
 		div.menu__item Host game
 		div.menu__item Join game
+		div.menu__item(data-ng-click="main.getCards()") List cards
 		a.menu__item(href="/addcard") Add cards
 
 	div.fixedmenu

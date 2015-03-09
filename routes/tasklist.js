@@ -66,6 +66,18 @@ TaskList.prototype = {
 		res.redirect('/');
 	},
 
+	getCards: function(req, res) {
+		Card.find(function (err, cards) {
+			if (err) {
+				return console.error(err);
+			}
+			res.send(cards);
+		});
+		//res.send(Card);
+		//card.save
+		//card.update
+	},
+
 	startGame: function(req, res) {
 
 

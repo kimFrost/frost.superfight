@@ -38,8 +38,11 @@ app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-// API
+// POST API
 app.post('/api/addcard', taskList.addCard.bind(taskList));
+
+// GET API
+app.get('/api/getcards', taskList.getCards.bind(taskList));
 
 
 

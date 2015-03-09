@@ -22,63 +22,56 @@
 
 	angular
 		.module('frost.Superfight')
-		.controller('AddCardCtrl', AddCardCtrl);
+		.controller('MainCtrl', MainCtrl);
 
 	/* @ngInject */
-	function AddCardCtrl($timeout, $http) {
+	function MainCtrl($timeout, $http) {
 
 		var main = this;
 		main.options = {
-			debug: false,
-			useWebStorage: false
+			debug: false
 		};
-		main.states = {};
+		main.states = {
+			pending: false,
+			success: false,
+			error: false
+		};
 
 		// Public functions
-		main.postCard = postCard;
+		main.getCards = getCards;
 
 		/**---------------------------------------
 		 FUNCTION LIBRARY
 		 ---------------------------------------**/
 
-		function postCard(formdata) {
-			console.log('data', formdata);
-			formdata.pending = true;
-			formdata.success = false;
-			formdata.error = false;
-
+		function getCards() {
+			console.log('getCards');
+			main.states.pending = true;
+			main.states.success = false;
+			main.states.error = false;
 
 			var req = {
-				method: 'POST',
-				url: '/api/addcard',
-				data: formdata
+				method: 'GET',
+				url: '/api/getcards'
 			};
 
 			$http(req)
 				.success(function (data, status, headers, config) {
 					console.log('success', data);
 					console.log('status', status);
-          formdata.pending = false;
-          formdata.success = true;
-          formdata.error = false;
-          formdata.cardtext = '';
+					main.states.pending = false;
+					main.states.success = true;
+					main.states.error = false;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
 					console.log('status', status);
-          formdata.pending = false;
-          formdata.success = false;
-          formdata.error = true;
+					main.states.pending = false;
+					main.states.success = false;
+					main.states.error = true;
 				});
 
 			// try .bind(data) -> this -> data // Not in a angular object
-		}
-
-		function setStorage(state) {
-			state = (state === undefined) ? true : state;
-			if (main.options.useWebStorage && typeof (Storage) !== 'undefined') {
-				sessionStorage.setItem(main.options.cookieStorageName, state);
-			}
 		}
 
 		// Debug log
@@ -106,8 +99,8 @@
 		}
 
 		/**---------------------------------------
-		 BINDINGS
-		 ---------------------------------------**/
+			BINDINGS
+		---------------------------------------**/
 
 
 	}
