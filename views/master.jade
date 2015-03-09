@@ -8,7 +8,7 @@ html(data-ng-app="frost.Superfight")
 		link(rel='stylesheet', href='/css/main.css')
 		script(src="/script/angular.js")
 		link(type="text/css", rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,700,400')
-	body
+	body(data-ng-controller="MainCtrl as main")
 		block content
 
 		script(src="/script/app.js")
