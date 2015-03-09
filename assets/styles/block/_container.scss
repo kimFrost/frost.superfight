@@ -7,9 +7,12 @@ $__gutterWidth: 20px;
 .container {
   @include transition(transform 800ms ease);
   width: 100%;
-  height: 100%;
+  //height: 100%;
   padding-right: $__gutterWidth;
   padding-left: $__gutterWidth;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
   position: relative;
   opacity: 1;
   //overflow-y: auto;
@@ -65,27 +68,6 @@ $__gutterWidth: 20px;
   //min-height: 100%; // flexbox will now center align with min-height
   z-index: 1;
 
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-box-align: center;
-  -webkit-flex-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-
-  @include mediaQueries(tablet){
-    width: $mq-contentWidth;
-  };
-  @include mediaQueries(desktop){
-    width: $mq-contentWidth;
-  };
-  @include mediaQueries(mobile){
-    //width: $mq-contentWidth; // Mobile is set as default
-  };
   @include onlyInDebug() {
     background-color: goldenrod;
   }
@@ -200,6 +182,20 @@ $__gutterWidth: 20px;
   overflow: hidden;
 }
 
+.container__content--center {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
 .container__scrollarea--show {
   display: block;
 }
@@ -207,15 +203,14 @@ $__gutterWidth: 20px;
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 
-@include mediaQueries(mobile) {
-
-}
-
 @include mediaQueries(tablet) {
-
+  .container__content {
+    width: $mq-contentWidth;
+  }
 }
 
 @include mediaQueries(desktop) {
-
+  .container__content {
+    width: $mq-contentWidth;
+  }
 }
-

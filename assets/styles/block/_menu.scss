@@ -1,0 +1,71 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.menu {
+  display: block;
+  font-family: $font_OpenSans;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba($color_black, 0.8);
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.menu,
+.menu__item  {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.menu__item {
+  position: relative;
+  display: block;
+  width: 100%;
+  clear: both;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid $color_black;
+  background-color: $color_white;
+  text-decoration: none;
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//

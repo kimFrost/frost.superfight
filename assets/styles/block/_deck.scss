@@ -1,0 +1,63 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.deck {
+  @include transition(all 300ms ease);
+  display: block;
+  width: 100%;
+  font-family: $font_OpenSans;
+  position: fixed;
+  z-index: 40;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+
+.deck,
+.deck__card {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.deck__card {
+  display: block;
+  float: left;
+  height: 100px;
+  width: 33%;
+
+  & + & {
+    margin-left: 5px;
+  }
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.fixedmenu--show {
+
+}
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//

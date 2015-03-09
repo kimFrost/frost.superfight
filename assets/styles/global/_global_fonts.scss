@@ -13,7 +13,6 @@ $type-scale-unit-value: rem;
 $alpha: 11;
 $beta: 12;
 $gamma: 14;
-$jimmi: 15;
 $delta: 16;
 $epsilon: 18;
 $zeta: 20;
@@ -22,7 +21,7 @@ $theta: 32;
 $iota: 48;
 $kappa: 64;
 
-$fontsizes: alpha $alpha, beta $beta, gamma $gamma, jimmi $jimmi, delta $delta, epsilon $epsilon, zeta $zeta, eta $eta, theta $theta, iota $iota, kappa $kappa;
+$fontsizes: alpha $alpha, beta $beta, gamma $gamma, delta $delta, epsilon $epsilon, zeta $zeta, eta $eta, theta $theta, iota $iota, kappa $kappa;
 
 @mixin modular-scale($scale, $base, $value, $measure:"", $lineHeightMultiplier:1.0) {
 	font-size: $scale#{px};

@@ -23,27 +23,26 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '/')));
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, '/')));
 //app.use(express.static(path.join(application_root, "/")));
 
-/*
- var index = require('./routes/index');
- var users = require('./routes/users');
-*/
-
-/*
- app.use('/', index);
- app.use('/users', users);
- */
 
 // GETS
-app.get('/', taskList.showTasks.bind(taskList));
+app.get('/addcard', taskList.showTasks.bind(taskList));
+app.get('/', taskList.startGame.bind(taskList));
+
 
 // POST
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
+
+
+// POST API
 app.post('/api/addcard', taskList.addCard.bind(taskList));
+
+// GET API
+app.get('/api/getcards', taskList.getCards.bind(taskList));
 
 
 
@@ -108,5 +107,5 @@ app.get('/node_modules/*', function (req, res) {
 
 
 app.listen(3000); // Listen on port 3000
-
+console.log("Listening on port :3000");
 module.exports = app;
