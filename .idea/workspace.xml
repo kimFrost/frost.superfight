@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd78c737-fe00-496e-bd34-50a2f252233d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/styles/block/_deck.scss" afterPath="$PROJECT_DIR$/assets/styles/block/_deck.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/scripts/controllers/addcard.controller.js" afterPath="$PROJECT_DIR$/assets/scripts/controllers/addcard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/scripts/controllers/main.controller.js" afterPath="$PROJECT_DIR$/assets/scripts/controllers/main.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="dd78c737-fe00-496e-bd34-50a2f252233d" name="Default" comment="" />
     <ignored path="frost.superfight.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,8 +99,8 @@
       <file leaf-file-name="_deck.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/styles/block/_deck.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71657145" vertical-offset="0" max-vertical-offset="1330">
-              <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.304" vertical-offset="0" max-vertical-offset="1330">
+              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -953,8 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles/block/_deck.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71657145" vertical-offset="0" max-vertical-offset="1330">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.304" vertical-offset="0" max-vertical-offset="1330">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding />
         </state>
       </provider>
