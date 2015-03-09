@@ -63,6 +63,7 @@
 					main.states.pending = false;
 					main.states.success = true;
 					main.states.error = false;
+					return data;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
