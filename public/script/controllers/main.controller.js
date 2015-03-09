@@ -106,6 +106,7 @@
 
 		// Get all cards from db
 		main.cards = getCards();
+		console.log('main.cards', main.cards);
 
 	}
 })();
