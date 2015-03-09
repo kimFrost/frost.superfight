@@ -8,7 +8,7 @@ block append content
 		div(data-ng-show="cardform.success") Card successfully created
 		div(data-ng-show="cardform.error") An error occurred
 
-		label.form__label Type
+		//label.form__label Type
 		select.form__select(data-ng-model="cardform.cardtype", data-ng-init="cardform.cardtype = 'character'")
 			option(value="character") character
 			option(value="trait") trait
