@@ -31,7 +31,7 @@
 		main.options = {
 			debug: false
 		};
-		main.cards = getCards();
+		main.cards = [];
 		main.states = {
 			pending: false,
 			success: false,
@@ -103,8 +103,8 @@
 		 BINDINGS
 		 ---------------------------------------**/
 
-
-
+		// Get all cards from db
+		main.cards = getCards();
 
 	}
 })();
