@@ -39,7 +39,21 @@
 }
 
 %form__button {
+  @include fontSize(epsilon, 1);
+  @include border-radius(10px 10px 10px 10px);
   display: block;
+  width: 100%;
+  margin: 0;
+  padding: 12px 12px;
+  min-width: 170px;
+  background-color: $color_black;
+  color: $color_white;
+  border: none;
+  font-family: inherit;
+  text-rendering: optimizelegibility;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 //--- ELEMENTS ----------------------------------------------------------//
@@ -67,25 +81,13 @@
   @extend %form__input;
 }
 
-.form__textarea { 
+.form__textarea {
   @extend %form__input;
   min-height: 400px;
 }
 
 .form__button {
   @extend %form__button;
-  @include fontSize(epsilon, 1);
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 12px 12px;
-  min-width: 170px;
-  background-color: red;
-  font-family: inherit;
-  text-rendering: optimizelegibility;
-  text-transform: uppercase;
-  font-weight: 400;
-  text-decoration: none;
   //border: 2px dotted $color_hearth;
   //color: $color_easter;
 }

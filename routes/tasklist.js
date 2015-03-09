@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 module.exports = TaskList;
 
 function TaskList(connectionString) {
-	mongoose.connect(connectionString);
+	//mongoose.connect(connectionString);
 }
 
 var db = mongoose.connection;
@@ -14,15 +14,19 @@ TaskList.prototype = {
 
 	// Index
 	showTasks: function (req, res) {
+		/*
 		Task.find({itemCompleted: false}, function foundTasks(err, items) {
-			/*
-			res.render('index', {
-				title: 'My ToDo List',
-				tasks: items
-			});
-			*/
+			//res.render('index', {
+			//	title: 'My ToDo List',
+			//	tasks: items
+			//});
 			res.render('addcard');
 		});
+		*/
+
+		//console.log(Task.db.collections);
+
+		res.render('addcard');
 	},
 
 	addTask: function (req, res) {
@@ -60,17 +64,21 @@ TaskList.prototype = {
 		var item = req.body;
 		var card = new Card();
 		card.name = item.name;
-		card.type = item.type;
-		card.text = item.text;
+		card.type = item.cardtype;
+		card.text = item.cardtext;
 		card.altText = item.altText;
 		// Send to db
 		card.save(function(err) {
 			if (err) {
 				throw err;
 			}
+			else {
+
+			}
+			// Redirect to root after it has been send to db
+			res.redirect('/');
 		});
-		// Redirect to root after it has been send to db
-		res.redirect('/');
+
 		/*
 		res.send({
 			status: 200,

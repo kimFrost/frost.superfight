@@ -9,7 +9,7 @@ block append content
 		div(data-ng-show="cardform.error") An error occurred
 
 		label.form__label Type
-		select.form__select(data-ng-model="cardform.type")
+		select.form__select(data-ng-model="cardform.cardtype", data-ng-init="cardform.cardtype = 'character'")
 			option(value="character") character
 			option(value="trait") trait
 			option(value="scenario") scenario
@@ -33,7 +33,7 @@ block append content
 
 		//input.form__input(type="text", name="name", placeholder="Card name", data-ng-model="cardform.name")
 
-		textarea.form__textarea(placeholder="Card text", name="text", data-ng-model="cardform.text")
+		textarea.form__textarea(placeholder="Card text", name="text", data-ng-value="" data-ng-model="cardform.cardtext")
 		//textarea.form__input(placeholder="Alt. text", name="altText", data-ng-model="cardform.altText")
 
 		input.form__button(type="submit", value="Add card")
