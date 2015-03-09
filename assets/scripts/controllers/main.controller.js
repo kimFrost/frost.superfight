@@ -31,6 +31,7 @@
 		main.options = {
 			debug: false
 		};
+		main.cards = [];
 		main.states = {
 			pending: false,
 			success: false,
@@ -62,6 +63,7 @@
 					main.states.pending = false;
 					main.states.success = true;
 					main.states.error = false;
+					main.cards = data;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
@@ -99,9 +101,12 @@
 		}
 
 		/**---------------------------------------
-			BINDINGS
-		---------------------------------------**/
+		 BINDINGS
+		 ---------------------------------------**/
 
+		// Get all cards from db
+		//main.cards = getCards();
+		getCards();
 
 	}
 })();
