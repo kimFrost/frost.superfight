@@ -63,7 +63,7 @@
 					main.states.pending = false;
 					main.states.success = true;
 					main.states.error = false;
-					return data;
+					main.cards = data;
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
@@ -105,8 +105,8 @@
 		 ---------------------------------------**/
 
 		// Get all cards from db
-		main.cards = getCards();
-		console.log('main.cards', main.cards);
+		//main.cards = getCards();
+		getCards();
 
 	}
 })();
