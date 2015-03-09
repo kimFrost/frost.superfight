@@ -66,6 +66,12 @@ TaskList.prototype = {
 		res.redirect('/');
 	},
 
+	startGame: function(req, res) {
+
+
+		res.render('index');
+	},
+
 	addCard: function(req, res) {
 		var item = req.body;
 		var card = new Card();

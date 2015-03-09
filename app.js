@@ -29,11 +29,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // GETS
-app.get('/', taskList.showTasks.bind(taskList));
+app.get('/addcard', taskList.showTasks.bind(taskList));
+app.get('/', taskList.startGame.bind(taskList));
+
 
 // POST
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
+
+
+// API
 app.post('/api/addcard', taskList.addCard.bind(taskList));
 
 

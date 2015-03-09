@@ -1,32 +1,18 @@
-h1 #{title}
-form(action="/completetask", method="post")
-  table(border="1")
-    tr
-      td Name
-      td Category
-      td Date
-      td Complete
-    each task in tasks
-      tr
-        td #{task.itemName}
-        td #{task.itemCategory}
-        - var day   = task.itemDate.getDate();
-        - var month = task.itemDate.getMonth() + 1;
-        - var year  = task.itemDate.getFullYear();
-        td #{month + "/" + day + "/" + year}
-        td
-          input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-  input(type="submit", value="Update tasks")
-hr
+extends master
 
-form(action="/addtask", method="post")
-  table(border="1") 
-    tr
-      td Item Name: 
-      td 
-        input(name="itemName", type="textbox")
-    tr
-      td Item Category: 
-      td 
-        input(name="itemCategory", type="textbox")
-  input(type="submit", value="Add item")
+block append content
+
+	div.container
+		div.container__content
+			div.container__inner content
+
+	div.menu
+		div.menu__item Host game
+		div.menu__item Join game
+		a.menu__item(href="/addcard") Add cards
+
+	div.fixedmenu
+		div.fixedmenu__item 1
+		div.fixedmenu__item 2
+		div.fixedmenu__item 3
+		div.fixedmenu__item 4
