@@ -24,12 +24,14 @@
 //--- PLACEHOLDERS ----------------------------------------------------------//
 
 %form__input {
+  @include noUserSelect();
   @include border-radius(10px 10px 10px 10px);
   display: block;
   width: 100%;
   margin: 0;
   padding: 10px;
   background-color: $color_white;
+  outline: none;
   border: 1px solid $color_darkgrey;
   &.ng-invalid-required {
     &.ng-dirty {
@@ -39,6 +41,7 @@
 }
 
 %form__button {
+  @include noUserSelect();
   @include fontSize(epsilon, 1);
   @include border-radius(10px 10px 10px 10px);
   display: block;
@@ -49,6 +52,7 @@
   background-color: $color_black;
   color: $color_white;
   border: none;
+  outline: none;
   font-family: inherit;
   text-rendering: optimizelegibility;
   text-transform: uppercase;

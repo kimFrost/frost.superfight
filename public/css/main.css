@@ -207,6 +207,11 @@ html {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000326}}
 .form__input, .form__textarea, .form__select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px 10px 10px 10px;
@@ -215,15 +220,21 @@ html {
   margin: 0;
   padding: 10px;
   background-color: #ffffff;
+  outline: none;
   border: 1px solid #383838;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000337}}
 .ng-invalid-required.ng-dirty.form__input, .ng-invalid-required.ng-dirty.form__textarea, .ng-invalid-required.ng-dirty.form__select {
   border: 1px solid red;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000343}}
 .form__button {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px 10px 10px 10px;
@@ -235,6 +246,7 @@ html {
   background-color: #000000;
   color: #ffffff;
   border: none;
+  outline: none;
   font-family: inherit;
   text-rendering: optimizelegibility;
   text-transform: uppercase;
@@ -249,32 +261,32 @@ html {
   line-height: 1rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000365}}
 .form__line {
   display: block;
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000368}}
 .form__line + .form__line {
   margin-top: 14px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000373}}
 .form__line .form__input + .form__input {
   margin-top: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000379}}
 .form__label {
   display: block;
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000388}}
 .form__textarea {
   min-height: 400px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003103}}
 .form__msg {
   -moz-transform: translate(0, 3px);
   -ms-transform: translate(0, 3px);
@@ -294,7 +306,7 @@ html {
   line-height: 0.6666666667rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003121}}
 .form__input + *,
 .form__textarea + *,
 .form__button + *,
@@ -302,19 +314,19 @@ html {
   margin-top: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003129}}
 .form__line--2:after {
   content: "";
   display: block;
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003130}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003134}}
 .form__line--2 .form__input {
   width: calc(50% - 7px);
   margin-right: 7px;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/workspace\/frost\.superfight\/assets\/styles\/block\/_form\.scss}line{font-family:\00003138}}
 .form__line--2 .form__input + .form__input {
   margin-top: 0;
   margin-right: 0;
