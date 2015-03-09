@@ -7,7 +7,7 @@ $__gutterWidth: 20px;
 .container {
   @include transition(transform 800ms ease);
   width: 100%;
-  height: 100%;
+  //height: 100%;
   padding-right: $__gutterWidth;
   padding-left: $__gutterWidth;
   position: relative;
