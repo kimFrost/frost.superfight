@@ -1,0 +1,36 @@
+
+// DESCRIPTION
+/*
+	These classes are for hiding markup under their specific media query.
+	Ex. under media query mobile profile, with .querynot--mobile, the element will be hidden only on the mobile profile
+*/
+
+
+// PARAMETERS
+
+
+// BLOCK
+
+.querynot {
+
+}
+
+//--- ELEMENTS -----------------------------------------------------//
+
+
+
+//--- MODIFERS -----------------------------------------------------//
+
+
+// Generates the appropriate classes from $mediaQueriesContentWidths
+@each $key, $value in $mq-mediaQueries {
+  //@debug $key;
+  //@debug $value;
+  @include mediaQueries($key) {
+    .querynot--#{$key} {
+      display: none;
+    }
+  }
+}
+
+

@@ -1,0 +1,406 @@
+
+/* NOTES */
+/*
+  Right now the first slides determines the height of the container
+*/
+
+// PARAMETERS
+$_slidesArrowWidth: image-width('../images/graphic/arrow_left.png');
+$_slidesArrowHeight: image-height('../images/graphic/arrow_left.png');
+$_slidesArrowRatio: ($_slidesArrowWidth / $_slidesArrowHeight);
+
+// BLOCK
+.slides {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	//height: 100%;
+	width: 100%;
+}
+
+.slides,
+.slides__cutter,
+.slides__list,
+.slides__slide,
+.slides__slide img,
+.slides__arrow,
+.slides__map,
+.slides__mapitem,
+.slides__headline,
+.slides__attachment,
+.slides__dev {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS -------------------------------------------------------//
+
+.slides__cutter {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  border: 3px solid $color_white;
+}
+
+.slides__list {
+	@include transition(transform 300ms ease);
+	@include translate(0%, 0%);
+	position: relative;
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.slides__slide {
+	@include noUserSelect();
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+  //padding-bottom: 70px;
+  //padding-bottom: 50px;
+	overflow: hidden; // Can be removed to make a kind of carousel
+	background-repeat: no-repeat;
+	background-position: center center;
+  background-size: cover;
+  cursor: pointer;
+  // Fix
+  & + & {
+    position: absolute;
+    top: 0;
+  }
+	&:nth-of-type(2) {
+		left: 100%;
+		//top: -100%;
+	}
+	&:nth-of-type(3) {
+		left: 200%;
+		//top: -200%;
+	}
+	&:nth-of-type(4) {
+		left: 300%;
+		//top: -300%;
+	}
+	&:nth-of-type(5) {
+		left: 400%;
+		//top: -400%;
+	}
+	&:nth-of-type(6) {
+		left: 500%;
+		//top: -500%;
+	}
+	&:nth-of-type(7) {
+		left: 600%;
+		//top: -600%;
+	}
+	&:nth-of-type(8) {
+		left: 700%;
+		//top: -700%;
+	}
+	&:nth-of-type(9) {
+		left: 800%;
+		//top: -800%;
+	}
+	&:nth-of-type(10) {
+		left: 900%;
+		//top: -900%;
+	}
+	&:nth-of-type(11) {
+		left: 1000%;
+	}
+	&:nth-of-type(12) {
+		left: 1100%;
+	}
+	&:nth-of-type(13) {
+		left: 1200%;
+	}
+	&:nth-of-type(14) {
+		left: 1300%;
+	}
+	&:nth-of-type(15) {
+		left: 1400%;
+	}
+	&:nth-of-type(16) {
+		left: 1500%;
+	}
+	&:nth-of-type(17) {
+		left: 1600%;
+	}
+	&:nth-of-type(18) {
+		left: 1700%;
+	}
+  & > img {
+    //border: 3px solid $color_white;
+    width: 100%;
+  }
+}
+a.slides__slide {
+	@include noUserSelect();
+}
+
+.slides__arrow {
+	@include transition(transform 300ms ease);
+	@include translate(0%, 0%);
+	@include fontSize(alpha, 0);
+  @include noUserSelect();
+  @include animation(popright 10s ease infinite);
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	opacity: 1;
+  background-image: url('/images/graphic/arrow_left.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+	height: $_slidesArrowHeight;
+	width: $_slidesArrowWidth;
+  line-height: $_slidesArrowHeight;
+  text-align: center;
+  color: $color_white;
+  text-transform: uppercase;
+	margin-top: -($_slidesArrowHeight/2);
+	z-index: 40;
+  font-family: $font_HelveticaNeueBlack;
+	cursor: pointer;
+  padding-left: 4px;
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+  &:active {
+    opacity: 1;
+  }
+}
+
+.slides__map {
+	display: block;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	z-index: 40;
+}
+
+.slides__mapitem {
+	@include border-radius(50% 50% 50% 50%);
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+	background-color: $color_white;
+	border: 1px solid $color_black;
+	position: relative;
+	cursor: pointer;
+	&:before {
+		@include border-radius(50% 50% 50% 50%);
+		content: "";
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 10px;
+		height: 10px;
+		margin-top: -5px;
+		margin-left: -5px;
+		background-color: $color_white;
+	}
+}
+
+.slides__headline {
+  @include transition(opacity 300ms ease);
+  //@include fontSize(eta, 1);
+  @include fontSize(zeta, 1);
+  color: $color_hearth;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $font_HelveticaNeueBlack;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  padding: 0;
+  position: relative;
+  z-index: 40;
+  opacity: 1;
+  &.ng-hide {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+  }
+}
+
+.slides__attachment {
+  //@include translate(0, -100px);
+  display: block;
+  width: 100%;
+  //position: relative;
+  position: absolute;
+  z-index: 60;
+  margin-top: 10px;
+  height: 95px;
+}
+
+.slides__dev {
+	@include fontSize(beta);
+	position: fixed;
+	left: 10px;
+	bottom: 30px;
+	//width: 50px;
+	background: $color_black;
+	color: red;
+	overflow: hidden;
+	padding: 5px;
+	z-index: 20;
+}
+
+//--- MODIFIERS -------------------------------------------------------//
+
+.slides--fit {
+  height: 100%;
+  .slides__headline {
+    position: absolute;
+    top: 0;
+  }
+  .slides__cutter {
+    margin-top: 30px;
+    height: calc(100% - 120px);
+  }
+}
+
+.slides--fadeanimate {
+  .slides__list {
+    @include transition(none);
+  }
+  .slides__slide {
+    @include transition(opacity 800ms ease);
+    opacity: 0;
+  }
+  .slides__slide--active {
+    opacity: 1;
+  }
+}
+
+.slides--noanimate {
+	.slides__list {
+		@include transition(none);
+	}
+}
+
+.slides__mapitem--active {
+	&:before {
+		background-color: $color_black;
+	}
+}
+
+.slides__arrow--right {
+  @include animation(popleft 10s ease infinite);
+  background-image: url('/images/graphic/arrow_right.png');
+	left: auto;
+	right: 0;
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+.slides__arrow--hide {
+	@include translate(0%, 100%);
+	&.slides__arrow--top {
+		@include translate(0%, -100%);
+	}
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries(mobile) {
+  .slides__headline {
+    @include fontSize(gamma, 1.1);
+  }
+  .slides__cutter {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+
+  }
+  .slides__arrow {
+    background-image: url('/images/graphic/arrow_left-small.png');
+    display: block;
+    width: 20px;
+    height: (20px / $_slidesArrowRatio);
+    line-height: (20px / $_slidesArrowRatio);
+    font-size: 0;
+    margin-top: -40px;
+  }
+  .slides__arrow--right {
+    background-image: url('/images/graphic/arrow_right-small.png');
+  }
+  .slides__attachment {
+    height: 65px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .slides--fit .slides__cutter {
+    height: calc(100% - 115px);
+    margin-top: 50px;
+  }
+}
+
+@include mediaQueries(tablet) {
+  .slides__cutter {
+    width: calc(100% - 200px);
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .slides__arrow {
+    display: block;
+  }
+}
+
+@include mediaQueries(desktop) {
+  .slides__cutter {
+    width: calc(100% - 200px);
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .slides__arrow {
+    display: block;
+  }
+}
+
+
+//--- KEYFRAME ANIMATIONS ----------------------------------------------------------//
+
+@include keyframes(popleft) {
+  40%, 60% {
+    @include translate(0%, 0%);
+  }
+  45% {
+    @include translate(-10%, 0%);
+  }
+  50% {
+    @include translate(0%, 0%);
+  }
+  55% {
+    @include translate(-10%, 0%);
+  }
+}
+
+@include keyframes(popright) {
+  40%, 60% {
+    @include translate(0%, 0%);
+  }
+  45% {
+    @include translate(10%, 0%);
+  }
+  50% {
+    @include translate(0%, 0%);
+  }
+  55% {
+    @include translate(10%, 0%);
+  }
+}

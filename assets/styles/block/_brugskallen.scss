@@ -1,0 +1,97 @@
+
+// DESCRIPTION
+
+
+// NOTES
+
+
+// PARAMETERS
+$_scrolldownWidth: image-width('../images/graphic/arrow_scrolldown.png');
+$_scrolldownHeight: image-height('../images/graphic/arrow_scrolldown.png');
+$_scrolldownRatio: ($_scrolldownWidth / $_scrolldownHeight);
+
+
+// BLOCK
+.brugskallen {
+
+
+}
+
+.brugskallen,
+.brugskallen__overlay,
+.brugskallen__debug,
+.brugskallen__scrollindicator {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.brugskallen__overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 30;
+  background-color: rgba($color_black, 0.8);
+}
+
+.brugskallen__debug {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  z-index: 100;
+}
+
+.brugskallen__scrollindicator {
+  @include transition(all 300ms ease);
+  @include translate(0%, 120%);
+  position: fixed;
+  opacity: 0;
+  background-image: url('/images/graphic/arrow_scrolldown.png');
+  width: $_scrolldownWidth;
+  height: $_scrolldownHeight;
+  display: block;
+  bottom: 20px;
+  left: calc(50% - #{$_scrolldownWidth / 2});
+  z-index: 80;
+}
+
+
+//--- MODIFIERS -------------------------------------------------------//
+
+.brugskallen--lock {
+  overflow: hidden;
+}
+
+.brugskallen__overlay--show {
+  display: block;
+}
+
+.brugskallen__scrollindicator--show {
+  @include translate(0%, 0%);
+  @include animation(scrollpop 1s ease infinite);
+  opacity: 1;
+}
+
+//--- MEDIA QUERIES -------------------------------------------------------//
+
+//--- KEYFRAME ANIMATIONS ----------------------------------------------------------//
+
+@include keyframes(scrollpop) {
+  0%, 100% {
+    @include translate(0%, 0%);
+  }
+  50% {
+    @include translate(0%, -30%);
+  }
+}
+

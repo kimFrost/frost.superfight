@@ -1,0 +1,230 @@
+
+// DESCRIPTION
+
+
+// NOTES
+
+
+// PARAMETERS
+$_toggleWidth: 95px;
+
+// BLOCK
+.header {
+  @include transition(transform 300ms ease);
+  @include translate(0%, -100%);
+  display: block;
+  position: fixed;
+  left: -10%;
+  top: 0;
+  width: 120%;
+  height: auto;
+  z-index: 60;
+  color: $color_easter;
+  font-family: $font_HelveticaNeueBlack;
+  text-transform: uppercase;
+  &:before,
+  &:after {
+    //@include border-radius(0 0 30% 30%);
+    @include border-radius(0 0 0 0);
+    //@include border-radius(0% 0% 50% 50% / 0% 0% 100% 100%);
+  }
+  &:before {
+    @include box-shadow(0px 0px 5px 0px rgba($color_black, 0.6));
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  &:after {
+    @include transition(all 300ms ease);
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: $color_hearth;
+  }
+}
+
+.header,
+.header__menu,
+.header__menuitem,
+.header__logo,
+.header__toggle {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.header__menu {
+  display: block;
+  //position: absolute;
+  width: 100%;
+  left: 0;
+  //top: 25px;
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  padding: 10px;
+}
+
+.header__menuitem {
+  display: block;
+  clear: both;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $color_white;
+  }
+  &:active {
+    color: darken($color_white, 15%);
+  }
+  & + & {
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+}
+
+.header__logo {
+  @include transition(transform 300ms ease);
+  @include translate(0%, 0%);
+  display: block;
+  position: absolute;
+  right: 9%;
+  top: 100%;
+  z-index: 2;
+  margin-right: 30px;
+  margin-top: 30px;
+  background-image: url('/images/graphic/logo.png');
+  width: image-width('../images/graphic/logo.png');
+  height: image-height('../images/graphic/logo.png');
+}
+
+.header__toggle {
+  @include transition(transform 300ms ease, background-color 300ms ease);
+  @include translate(-#{$_toggleWidth/2}, 95%);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: $_toggleWidth;
+  background-color: $color_hearth;
+  padding: 9px 12px;
+  text-align: center;
+  color: $color_harvest;
+  cursor: pointer;
+  z-index: 0;
+  &:hover,
+  &:focus {
+    color: lighten($color_harvest, 15%);
+  }
+  &:active {
+    color: darken($color_harvest, 15%);
+  }
+  &:before {
+    @include box-shadow(0px 0px 5px 0px rgba($color_black, 0.6));
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+
+//--- MODIFIERS -------------------------------------------------------//
+
+.header--show {
+  @include translate(0%, 0%);
+}
+
+.header__menuitem--active {
+  color: $color_white;
+}
+
+.header--hide {
+  @include translate(0%, -100%);
+  .header__toggle {
+    @include translate(-#{$_toggleWidth/2}, 0%);
+  }
+  .header__logo {
+    @include translate(150%, 0%);
+  }
+}
+
+.header--harvest {
+  color: $color_hearth;
+  &:after {
+    background-color: $color_harvest;
+  }
+  .header__toggle {
+    background-color: $color_harvest;
+    color: $color_hearth;
+    &:hover,
+    &:focus {
+      color: lighten($color_hearth, 15%);
+    }
+    &:active {
+      color: darken($color_hearth, 15%);
+    }
+  }
+}
+
+
+//--- MEDIA QUERIES -------------------------------------------------------//
+@include mediaQueries(mobile) {
+  .header__logo {
+    display: none;
+  }
+  .header__menu {
+    padding: 20px 10px 20px 10px;
+  }
+}
+
+@include mediaQueries(tablet) {
+  .header {
+    @include border-radius(0 0 50% 50%);
+    &:before,
+    &:after {
+      @include border-radius(0 0 50% 50%);
+    }
+  }
+  .header__menu {
+    padding: 15px 10px 15px 10px;
+  }
+  .header__menuitem {
+
+  }
+}
+@include mediaQueries(desktop) {
+  .header {
+    @include border-radius(0 0 50% 50%);
+
+    &:before,
+    &:after {
+      @include border-radius(0 0 50% 50%);
+    }
+  }
+  .header__menu {
+    padding: 20px 10px 15px 10px;
+  }
+  .header__menuitem {
+    display: inline-block;
+    & + .header__menuitem {
+      margin-top: 0;
+    }
+  }
+}

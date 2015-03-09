@@ -24,18 +24,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '/')));
-//app.use(express.static(path.join(application_root, "/")));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 /*
- var index = require('./routes/index');
- var users = require('./routes/users');
+var index = require('./routes/index');
+var users = require('./routes/users');
 */
 
 /*
- app.use('/', index);
- app.use('/users', users);
- */
+app.use('/', index);
+app.use('/users', users);
+*/
 
 // GETS
 app.get('/', taskList.showTasks.bind(taskList));
@@ -43,28 +43,25 @@ app.get('/', taskList.showTasks.bind(taskList));
 // POST
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
-app.post('/api/addcard', taskList.addCard.bind(taskList));
+//app.post('/addcard', taskList.addCard.bind(taskList));
 
 
-
-/*
-app.post('/api/addcard', function(req, res) {
-	var data = req.body;
+app.get('api/addcard', function(req, res) {
 	res.send({
-		status: 200,
-		msg: data
+		status: 'blahh',
+		req: req,
+		res: res
 	});
-	//res.send('asdasdasd');
 });
-*/
+
 
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handlers
@@ -72,23 +69,23 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-	app.use(function(err, req, res, next) {
-		res.status(err.status || 500);
-		res.render('error', {
-			message: err.message,
-			error: err
-		});
-	});
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-	res.status(err.status || 500);
-	res.render('error', {
-		message: err.message,
-		error: {}
-	});
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
 });
 
 

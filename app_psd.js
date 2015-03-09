@@ -37,7 +37,7 @@ app.get('/node_modules/*', function (req, res) {
 
 
 // REST API
-app.get('/api/getPsdList', function(red, res) {
+app.get('/api/getPsdList', function(req, res) {
 	app.readPsdDir();
 	res.send(app.data.psdList);
 });

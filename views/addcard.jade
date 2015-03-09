@@ -1,15 +1,25 @@
-form(action="/addcard", method="post")
+extends master
 
-	label character
-	input(type="radio", name="type", value="character")
-	label trait
-	input(type="radio", name="type", value="trait")
-	label scenario
-	input(type="radio", name="type", value="scenario")
+block append content
+	//form.form(action="/addcard", method="post")
+	form.form(name="cardform" novalidate, data-ng-controller="AddCardCtrl as addcard", data-ng-submit="addcard.postCard(cardform)")
 
-	input(type="text", name="name", placeholder="Card name")
+		div(data-ng-show="cardform.pending") Request pending...
+		div(data-ng-show="cardform.success") Card successfully created
+		div(data-ng-show="cardform.error") An error occurred
 
-	textarea(placeholder="Card text", name="text")
-	textarea(placeholder="Alt. text", name="altText")
+		label.form__label character
+		input.form__input(type="radio", name="type", value="character", checked="checked", data-ng-model="cardform.type")
+		label.form__label trait
+		input.form__input(type="radio", name="type", value="trait", data-ng-model="cardform.type")
+		label.form__label scenario
+		input.form__input(type="radio", name="type", value="scenario", data-ng-model="cardform.type")
+		label.form__label Special trait
+		input.form__input(type="radio", name="type", value="s-trait", data-ng-model="cardform.type")
 
-	input(type="submit", value="Add card")
+		//input.form__input(type="text", name="name", placeholder="Card name", data-ng-model="cardform.name")
+
+		textarea.form__textarea(placeholder="Card text", name="text", data-ng-model="cardform.text")
+		//textarea.form__input(placeholder="Alt. text", name="altText", data-ng-model="cardform.altText")
+
+		input.form__button(type="submit", value="Add card")
