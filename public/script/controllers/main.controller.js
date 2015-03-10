@@ -35,7 +35,9 @@
 		main.states = {
 			pending: false,
 			success: false,
-			error: false
+			error: false,
+            showMenu: true,
+            showFixedmenu: false
 		};
 
 		// Public functions
