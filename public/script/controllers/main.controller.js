@@ -46,6 +46,10 @@
     // Public functions
     main.getCards = getCards;
     main.newGame = newGame;
+    main.pickCard = pickCard;
+    main.selectCard = selectCard;
+    main.getNumber = getNumber;
+    main.getCardClass = getCardClass;
 
     /**---------------------------------------
      CONSTRUCTORS
@@ -68,6 +72,18 @@
       // PLAYER
       if (type === 'player') {
         this.type = type;
+        this.options = {
+          draw:  {
+            char: 3,
+            trait: 4
+          },
+          pick: {
+            char: 1,
+            trait: 1,
+            traitTrade: 1
+            //traitRandom: 0
+          }
+        };
         this.actions = [
           {
             text: 'hand',
@@ -95,7 +111,29 @@
       // HOST
       else if (type === 'host') {
         this.type = type;
+        this.options = {
+          draw:  {
+            char: 1,
+            trait: 2
+          },
+          pick: {
+            char: 1,
+            trait: 2,
+            traitTrade: 0,
+            traitRandom: 0
+          }
+        };
         this.actions = [
+          {
+            text: 'hand',
+            action: function(item) {
+              this.api.inactivateAll(item);
+              item.states.active = !item.states.active;
+            }.bind(this),
+            states: {
+              active: false
+            }
+          },
           {
             text: 'settings',
             action: function(item) {
@@ -125,6 +163,15 @@
      FUNCTION LIBRARY
      ---------------------------------------**/
 
+    function getNumber(n) {
+      return new Array(n);
+    }
+
+    function getCardClass(value) {
+      return 'card--' + value;
+    }
+
+    // Get Cards
     function getCards() {
       console.log('getCards');
       main.states.pending = true;
@@ -152,10 +199,10 @@
           main.states.success = false;
           main.states.error = true;
         });
-
       // try .bind(data) -> this -> data // Not in a angular object
     }
 
+    // Make Decks
     function makeDecks() {
       var decks = {
         characters: [],
@@ -200,17 +247,57 @@
       decks.scenarios = allScenarios;
 
       var cardsTotalSoFar =  decks.characters.length + decks.traits.length + decks.scenarios.length;
+      //log('cardsTotalSoFar', cardsTotalSoFar);
 
-      console.log('cardsTotalSoFar', cardsTotalSoFar);
+      // Logic for get precentage of random combi-cards
+      // (MISSING)
 
       return decks;
     }
 
+    // Pick Card
+    function pickCard(type) {
+
+    }
+
+    // Select Card
+    function selectCard(card) {
+
+    }
+
+    function getNewHand() {
+      var cards = [];
+
+      var i;
+      var card;
+      var randomInt;
+      for (i = 0; i < main.gamemode.options.draw.char; i++) {
+        randomInt = Math.floor(Math.random() * main.decks.characters.length);
+        card = main.decks.characters[randomInt];
+        cards.push(card);
+        console.log('char card', card);
+      }
+      for (i = 0; i < main.gamemode.options.draw.trait; i++) {
+        randomInt = Math.floor(Math.random() * main.decks.traits.length);
+        card = main.decks.traits[randomInt];
+        cards.push(card);
+        console.log('trait card', card);
+        console.log('trait card2', randomInt);
+      }
+
+      return cards;
+    }
+
+    // New Game
     function newGame(type) {
       main.gamemode = new Gamemode(type);
 
       // Get decks
       main.decks = makeDecks();
+
+      // Get cards in hand
+      main.hand = getNewHand();
+      console.log('main.hand', main.hand);
 
       // Show options/actions
       main.states.showMenu = false;

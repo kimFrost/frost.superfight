@@ -15,35 +15,23 @@ block append content
 
 
 	div.table
-		div.table__column
+		div.table__column(data-ng-repeat="(key, value) in main.gamemode.options.pick")
+			div.table__card(data-ng-repeat="i in main.getNumber(value) track by $index")
+				div.card(data-ng-class="main.getCardClass(key)")
+					div.card__inner(data-ng-click="main.pickCard(key)")
+		//div.table__column
 			div.table__card
 				div.card
 					div.card__inner
 			div.table__card
 				div.card
 					div.card__inner
-		div.table__column
-			div.table__card
+
+	div.hand(data-ng-class="{'hand--show': main.gamemode.actions[0].states.active}") Hand
+		div.hand__cards
+			div.hand__card(data-ng-repeat="card in main.hand track by $index")
 				div.card
-					div.card__inner
-			div.table__card
-				div.card
-					div.card__inner
-		div.table__column
-			div.table__card
-				div.card
-					div.card__inner
-		div.table__column
-			div.table__card
-				div.card
-					div.card__inner
-		div.table__column
-			div.table__card
-				div.card
-					div.card__inner
-			div.table__card
-				div.card
-					div.card__inner
+					div.card__inner(data-ng-bind="card.text")
 
 	//div.deck
 		div.deck__card(data-ng-repeat="card in main.cards")
