@@ -2,23 +2,25 @@ extends master
 
 block append content
 
-    //div.container
-        div.container__content
-            div.container__inner content
+	//div.container
+		div.container__content
+			div.container__inner content
 
-    div.menu(data-ng-class="{'menu--hide': !main.states.showMenu}")
-        div.menu__item Host game
-        div.menu__item Join game
-        div.menu__item(data-ng-click="main.getCards()") List cards
-        a.menu__item(href="/addcard") Add cards
-        div.menu__item(data-ng-click="main.states.showMenu = false") Close
+	div.menu(data-ng-class="{'menu--hide': !main.states.showMenu}")
+		div.menu__item Host game
+		div.menu__item Join game
+		div.menu__item(data-ng-click="main.getCards()") List cards
+		a.menu__item(href="/addcard") Add cards
+		div.menu__item(data-ng-click="main.states.showMenu = false") Close
 
-    div.deck
-        div.deck__card(data-ng-repeat="card in main.cards")
-            div.deck__cardinner(data-ng-bind="card.text")
+	div.deck
+		div.deck__card(data-ng-repeat="card in main.cards")
+			div.deck__cardinner
+				div.card
+					div.card__inner(data-ng-bind="card.text")
 
-    div.fixedmenu(data-ng-class="{'fixedmenu--show': main.states.showFixedmenu}")
-        div.fixedmenu__item 1
-        div.fixedmenu__item 2
-        div.fixedmenu__item 3
-        div.fixedmenu__item 4
+	div.fixedmenu(data-ng-class="{'fixedmenu--show': main.states.showFixedmenu}")
+		div.fixedmenu__item 1
+		div.fixedmenu__item 2
+		div.fixedmenu__item 3
+		div.fixedmenu__item 4
