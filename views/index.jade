@@ -13,7 +13,9 @@ block append content
 		a.menu__item(href="/addcard") Add cards
 
 	div.deck
-		div.deck__card(data-ng-repeat="card in main.cards", data-ng-bind="card.text")
+		div.deck__card(data-ng-repeat="card in main.cards")
+			div.card
+				div.card__inner(data-ng-bind="card.text")
 
 	div.fixedmenu
 		div.fixedmenu__item 1
