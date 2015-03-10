@@ -33,6 +33,7 @@
     };
     main.cards = [];
     main.decks = {};
+    main.hand = [];
     main.gamemode = {};
     main.states = {
       pending: false,
@@ -165,8 +166,42 @@
         combiScenario: []
       };
 
+      var allCharacters = [];
+      var allTraits = [];
+      var allScenarios = [];
+      var allCombiCharacter = [];
+      var allCombiTraits = [];
+      var allCombiScenario = [];
 
+      for (var i=0; i<main.cards.length; i++) {
+        var card = main.cards[i];
+        if (card.type === 'character') {
+          allCharacters.push(card);
+        }
+        else if (card.type === 'trait') {
+          allTraits.push(card);
+        }
+        else if (card.type === 'scenarios') {
+          allScenarios.push(card);
+        }
+        else if (card.type === 'combi-character') {
+          allCombiCharacter.push(card);
+        }
+        else if (card.type === 'combi-trait') {
+          allCombiTraits.push(card);
+        }
+        else if (card.type === 'combi-scenario') {
+          allCombiScenario.push(card);
+        }
+      }
 
+      decks.characters = allCharacters;
+      decks.traits = allTraits;
+      decks.scenarios = allScenarios;
+
+      var cardsTotalSoFar =  decks.characters.length + decks.traits.length + decks.scenarios.length;
+
+      console.log('cardsTotalSoFar', cardsTotalSoFar);
 
       return decks;
     }

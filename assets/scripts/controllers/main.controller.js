@@ -33,6 +33,7 @@
     };
     main.cards = [];
     main.decks = {};
+    main.hand = [];
     main.gamemode = {};
     main.states = {
       pending: false,
@@ -67,6 +68,18 @@
       // PLAYER
       if (type === 'player') {
         this.type = type;
+        this.options = {
+          draw:  {
+            char: 3,
+            trait: 4
+          },
+          pick: {
+            char: 1,
+            trait: 1,
+            traitTrade: 0,
+            traitRandom: 1
+          }
+        };
         this.actions = [
           {
             text: 'hand',
@@ -94,6 +107,18 @@
       // HOST
       else if (type === 'host') {
         this.type = type;
+        this.options = {
+          draw:  {
+            char: 1,
+            trait: 2
+          },
+          pick: {
+            char: 1,
+            trait: 2,
+            traitTrade: 0,
+            traitRandom: 0
+          }
+        };
         this.actions = [
           {
             text: 'settings',
@@ -124,6 +149,7 @@
      FUNCTION LIBRARY
      ---------------------------------------**/
 
+    // Get Cards
     function getCards() {
       console.log('getCards');
       main.states.pending = true;
@@ -151,10 +177,10 @@
           main.states.success = false;
           main.states.error = true;
         });
-
       // try .bind(data) -> this -> data // Not in a angular object
     }
 
+    // Make Decks
     function makeDecks() {
       var decks = {
         characters: [],
@@ -165,12 +191,49 @@
         combiScenario: []
       };
 
+      var allCharacters = [];
+      var allTraits = [];
+      var allScenarios = [];
+      var allCombiCharacter = [];
+      var allCombiTraits = [];
+      var allCombiScenario = [];
 
+      for (var i=0; i<main.cards.length; i++) {
+        var card = main.cards[i];
+        if (card.type === 'character') {
+          allCharacters.push(card);
+        }
+        else if (card.type === 'trait') {
+          allTraits.push(card);
+        }
+        else if (card.type === 'scenarios') {
+          allScenarios.push(card);
+        }
+        else if (card.type === 'combi-character') {
+          allCombiCharacter.push(card);
+        }
+        else if (card.type === 'combi-trait') {
+          allCombiTraits.push(card);
+        }
+        else if (card.type === 'combi-scenario') {
+          allCombiScenario.push(card);
+        }
+      }
 
+      decks.characters = allCharacters;
+      decks.traits = allTraits;
+      decks.scenarios = allScenarios;
+
+      var cardsTotalSoFar =  decks.characters.length + decks.traits.length + decks.scenarios.length;
+      //log('cardsTotalSoFar', cardsTotalSoFar);
+
+      // Logic for get precentage of random combi-cards
+      // (MISSING)
 
       return decks;
     }
 
+    // New Game
     function newGame(type) {
       main.gamemode = new Gamemode(type);
 

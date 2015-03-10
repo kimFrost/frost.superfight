@@ -4,14 +4,35 @@
 
 // BLOCK
 .card {
+  @include transition(all 300ms ease);
   @include border-radius(5% 5% 5% 5%);
-  //@include box-shadow(inset 0 0 30px 5px rgba($color_white, 0.8));
   @include box-shadow(3px 3px 7px 0px rgba($color_black, 0.4));
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   display: block;
+  overflow: hidden;
+  position: relative;
   width: 100%;
   padding-bottom: 130%;
   background-color: mix($color_white, $color_black, 98%);
   border: 1px solid mix($color_white, $color_black, 90%);
+  // Back
+  &::before {
+    @include transition(all 300ms ease);
+   // @include rotate3d(0, 0, 0, 30deg);
+    @include rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/cardback.gif');
+    background-repeat: repeat;
+  }
 }
 
 .card,
@@ -35,7 +56,10 @@
 //--- MODIFIERS ----------------------------------------------------------//
 
 .card--back {
-
+  @include rotateY(180deg);
+  &::before {
+    @include rotateY(360deg);
+  }
 }
 
 .card--pick {
