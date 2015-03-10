@@ -24,12 +24,39 @@
 //--- ELEMENTS ----------------------------------------------------------//
 
 .hand__cards {
-  width: 2000px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  padding: 20px;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+
 }
 
 .hand__card {
   display: block;
-  float: left;
+  width: 200px;
+  & + & {
+    margin-left: 10px;
+  }
 }
 
 //--- MODIFIERS ----------------------------------------------------------//

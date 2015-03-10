@@ -30,7 +30,7 @@ block append content
 	div.hand(data-ng-class="{'hand--show': main.gamemode.actions[0].states.active}") Hand
 		div.hand__cards
 			div.hand__card(data-ng-repeat="card in main.hand track by $index")
-				div.card
+				div.card(data-ng-click="main.selectCard(card)")
 					div.card__inner(data-ng-bind="card.text")
 
 	//div.deck
