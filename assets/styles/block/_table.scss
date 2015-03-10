@@ -1,0 +1,52 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.table {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  min-height: 100%;
+  background-color: $color_midgrey;
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.table,
+.table__column,
+.table__card {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.table__column {
+  display: block;
+  width: (100% / 3);
+  float: left;
+  &:nth-child(3n+1) {
+    clear: both;
+  }
+}
+
+.table__card {
+  padding: 15px 15px 0 0;
+  display: block;
+  width: 100%;
+  clear: both;
+  position: relative;
+  & + & {
+    padding-top: 5px;
+  }
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//

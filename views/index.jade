@@ -13,7 +13,31 @@ block append content
 		a.menu__item(href="/addcard") Add cards
 		div.menu__item(data-ng-click="main.states.showMenu = false") Close
 
-	div.deck
+
+	div.table
+		div.table__column
+			div.table__card
+				div.card
+			div.table__card
+				div.card
+		div.table__column
+			div.table__card
+				div.card
+			div.table__card
+				div.card
+		div.table__column
+			div.table__card
+				div.card
+		div.table__column
+			div.table__card
+				div.card
+		div.table__column
+			div.table__card
+				div.card
+			div.table__card
+				div.card
+
+	//div.deck
 		div.deck__card(data-ng-repeat="card in main.cards")
 			div.deck__cardinner
 				div.card
