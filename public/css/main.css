@@ -503,13 +503,6 @@ html {
   -ms-justify-content: center;
   justify-content: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_fixedmenu\.scss}line{font-family:\0000377}}
-.fixedmenu__item:hover {
-  -moz-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_fixedmenu\.scss}line{font-family:\0000381}}
 .fixedmenu__item + .fixedmenu__item {
   margin-left: 5px;

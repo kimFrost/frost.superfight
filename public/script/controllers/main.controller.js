@@ -52,22 +52,27 @@
     var Gamemode = function (type) {
       type = (type === undefined) ? 'player' : type;
 
+      // Commen api functions
+      this.api = {
+        inactivateAll: function(item) {
+          for (var i=0; i < this.actions.length; i++) {
+            var _item = this.actions[i];
+            if (_item !== item) {
+              _item.states.active = false;
+            }
+          }
+        }.bind(this)
+      };
+
       // PLAYER
       if (type === 'player') {
         this.type = type;
-        this.api = {
-          inactivateAll: function() {
-            for (var i=0; i < this.actions.length; i++) {
-              this.actions[i].states.active = false;
-            }
-          }.bind(this)
-        };
         this.actions = [
           {
             text: 'hand',
             action: function(item) {
-              this.api.inactivateAll();
-              item.states.active = true;
+              this.api.inactivateAll(item);
+              item.states.active = !item.states.active;
             }.bind(this),
             states: {
               active: false
@@ -76,8 +81,8 @@
           {
             text: 'players',
             action: function(item) {
-              this.api.inactivateAll();
-              item.states.active = true;
+              this.api.inactivateAll(item);
+              item.states.active = !item.states.active;
             }.bind(this),
             states: {
               active: false
@@ -89,19 +94,12 @@
       // HOST
       else if (type === 'host') {
         this.type = type;
-        this.api = {
-          inactivateAll: function() {
-            for (var i=0; i < this.actions.length; i++) {
-              this.actions[i].states.active = false;
-            }
-          }.bind(this)
-        };
         this.actions = [
           {
             text: 'settings',
             action: function(item) {
-              this.api.inactivateAll();
-              item.states.active = true;
+              this.api.inactivateAll(item);
+              item.states.active = !item.states.active;
             }.bind(this),
             states: {
               active: false
@@ -110,8 +108,8 @@
           {
             text: 'players',
             action: function(item) {
-              this.api.inactivateAll();
-              item.states.active = true;
+              this.api.inactivateAll(item);
+              item.states.active = !item.states.active;
             }.bind(this),
             states: {
               active: false

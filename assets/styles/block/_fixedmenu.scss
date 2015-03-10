@@ -75,7 +75,7 @@
   -ms-justify-content: center;
   justify-content: center;
   &:hover {
-    @include translate(0, 0);
+    //@include translate(0, 0);
   }
 
   & + & {
