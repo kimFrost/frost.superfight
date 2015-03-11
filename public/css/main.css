@@ -738,33 +738,39 @@ html {
   height: 100%;
   width: auto;
   padding: 20px;
+  width: 1500px;
+  /*
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+
   -webkit-box-align: center;
   -webkit-flex-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+
   -webkit-justify-content: center;
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
+  */
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_hand\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_hand\.scss}line{font-family:\0000359}}
 .hand__card {
   display: block;
   width: 200px;
+  float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_hand\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_hand\.scss}line{font-family:\0000363}}
 .hand__card + .hand__card {
   margin-left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_hand\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_hand\.scss}line{font-family:\0000370}}
 .hand--show {
   display: block;
 }

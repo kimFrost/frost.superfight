@@ -33,6 +33,9 @@
   width: auto;
   padding: 20px;
 
+  width: (200px * 7 + 60px + 40px);
+
+  /*
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -49,12 +52,14 @@
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
+  */
 
 }
 
 .hand__card {
   display: block;
   width: 200px;
+  float: left;
   & + & {
     margin-left: 10px;
   }
