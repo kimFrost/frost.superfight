@@ -41,6 +41,9 @@
       border: 1px solid red;
     }
   }
+  &[disabled] {
+    opacity: 0.3;
+  }
 }
 
 %form__button {
@@ -61,6 +64,9 @@
   font-weight: 400;
   text-decoration: none;
   font-family: inherit;
+  &[disabled] {
+    opacity: 0.3;
+  }
 }
 
 //--- ELEMENTS ----------------------------------------------------------//

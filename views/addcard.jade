@@ -37,7 +37,7 @@ block append content
 
 					//input.form__input(type="text", name="name", placeholder="Card name", data-ng-model="cardform.name")
 
-					textarea.form__textarea(placeholder="Card text", name="text", data-ng-value="" required data-ng-model="cardform.cardtext")
+					textarea.form__textarea(placeholder="Card text", name="text", data-ng-value="" required data-ng-model="cardform.cardtext" data-ng-disabled="cardform.pending")
 					//textarea.form__input(placeholder="Alt. text", name="altText", data-ng-model="cardform.altText")
 
-					input.form__button(type="submit", value="Add card")
+					input.form__button(type="submit", value="Add card", data-ng-disabled="cardform.pending")

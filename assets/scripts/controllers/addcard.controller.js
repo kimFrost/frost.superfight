@@ -60,6 +60,7 @@
 					formdata.pending = false;
 					formdata.success = true;
 					formdata.error = false;
+          formdata.cardtext = '';
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
