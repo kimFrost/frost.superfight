@@ -11,7 +11,7 @@ var app = express();
 
 var TaskList = require('./routes/tasklist');
 //var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
-var taskList = new TaskList('localhost' || process.env.CUSTOMCONNSTR_MONGOLAB_URI);
+var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI || 'localhost');
 //var taskList = new TaskList('localhost');
 //var taskList = new TaskList('localhost');
 
