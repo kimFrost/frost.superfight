@@ -14,30 +14,37 @@ block append content
 		div.menu__item(data-ng-click="main.states.showMenu = false") Close
 
 
-	div.table
+
+
+	//div.table
 		div.table__column(data-ng-repeat="(key, value) in main.gamemode.options.pick")
 			div.table__card(data-ng-repeat="i in main.getNumber(value) track by $index")
 				div.card(data-ng-class="main.getCardClass(key)")
 					div.card__inner(data-ng-click="main.pickCard(key)")
-		//div.table__column
-			div.table__card
-				div.card
-					div.card__inner
-			div.table__card
-				div.card
-					div.card__inner
+
+
+	div.table
+		div.table__column(data-ng-repeat="row in main.slots")
+			div.table__card(data-ng-repeat="slot in row.slots")
+				div.card(data-ng-class="main.getCardClass(slot.type)")
+					div.card__inner(data-ng-click="main.pickCard(slot)", data-ng-bind="slot.card.cardtext")
+
+
 
 	div.hand(data-ng-class="{'hand--show': main.gamemode.actions[0].states.active}") Hand
 		div.hand__cards
-			div.hand__card(data-ng-repeat="card in main.hand track by $index")
-				div.card(data-ng-click="main.selectCard(card)")
+			div.hand__card(data-ng-repeat="card in main.hand | filter: {type: main.handFilter} track by $index")
+				div.card(data-ng-click="main.selectCard(card)", data-ng-class="main.getCardClass(card.type)")
 					div.card__inner(data-ng-bind="card.text")
+
+
 
 	//div.deck
 		div.deck__card(data-ng-repeat="card in main.cards")
 			div.deck__cardinner
 				div.card
 					div.card__inner(data-ng-bind="card.text")
+
 
 	div.fixedmenu(data-ng-class="{'fixedmenu--show': main.states.showFixedmenu}")
 		div.fixedmenu__item(data-ng-repeat="item in main.gamemode.actions", data-ng-bind="item.text", data-ng-class="{'fixedmenu__item--active': item.states.active}", data-ng-click="item.action(item)")

@@ -34,6 +34,7 @@
     main.cards = [];
     main.decks = {};
     main.hand = [];
+    main.handFilter = '';
     main.gamemode = {};
     main.states = {
       pending: false,
