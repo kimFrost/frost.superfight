@@ -91,7 +91,8 @@
 						text: 'hand',
 						action: function (item) {
 							this.api.inactivateAll(item);
-							main.handFilter = '';
+							// Reset hand filter type and selected card
+							pickCard();
 							item.states.active = !item.states.active;
 						}.bind(this),
 						states: {
@@ -131,7 +132,8 @@
 						text: 'hand',
 						action: function (item) {
 							this.api.inactivateAll(item);
-							main.handFilter = '';
+							// Reset hand filter type and selected card
+							pickCard();
 							item.states.active = !item.states.active;
 						}.bind(this),
 						states: {
@@ -265,6 +267,16 @@
 				slot.states.selected = true;
 				main.handFilter = slot.type;
 				main.gamemode.actions[0].states.active = true;
+			}
+			else {
+				for (var i = 0; i < main.slots.length; i++) {
+					var row = main.slots[i];
+					for (var ii = 0; ii < row.slots.length; ii++) {
+						var slot = row.slots[ii];
+						slot.states.selected = false;
+					}
+				}
+				main.handFilter = '';
 			}
 		}
 

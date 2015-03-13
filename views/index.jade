@@ -27,7 +27,7 @@ block append content
 		div.table__column(data-ng-repeat="row in main.slots")
 			div.table__card(data-ng-repeat="slot in row.slots")
 				div.card(data-ng-class="main.getCardClass(slot.type)")
-					div.card__inner(data-ng-click="main.pickCard(slot)", data-ng-bind="slot.card.cardtext")
+					div.card__inner(data-ng-click="main.pickCard(slot)", data-ng-bind="slot.card.text")
 
 
 
