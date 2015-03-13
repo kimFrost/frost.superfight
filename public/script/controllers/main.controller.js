@@ -196,7 +196,7 @@
 					main.states.pending = false;
 					main.states.success = true;
 					main.states.error = false;
-					main.cards = data;
+					main.cards = enrichCards(data);
 				})
 				.error(function (data, status, headers, config) {
 					console.log('error', data);
@@ -206,6 +206,17 @@
 					main.states.error = true;
 				});
 			// try .bind(data) -> this -> data // Not in a angular object
+		}
+
+		function enrichCards(cards) {
+			for (var i = 0; i < cards.length; i++) {
+				var card = cards[i];
+				card.states = {
+					drawn: false,
+					placed: false
+				};
+			}
+			return cards;
 		}
 
 		// Make Decks
@@ -264,9 +275,18 @@
 		// Pick Card
 		function pickCard(slot) {
 			if (slot !== undefined) {
-				slot.states.selected = true;
-				main.handFilter = slot.type;
-				main.gamemode.actions[0].states.active = true;
+				var type = slot.type;
+				var pickFromHand = true;
+				// Check for special types
+				log('slot', slot);
+				if (type === 'traitTrade') {
+					type = 'trait';
+				}
+				if (pickFromHand) {
+					slot.states.selected = true;
+					main.handFilter = type;
+					main.gamemode.actions[0].states.active = true;
+				}
 			}
 			else {
 				for (var i = 0; i < main.slots.length; i++) {
@@ -297,7 +317,13 @@
 				}
 			}
 			if (anyFound) {
+				// Reset previous placed card
+				if (selectedSlot.card.states !== undefined) {
+					selectedSlot.card.states.placed = false;
+				}
+				// Store information
 				selectedSlot.card = card;
+				card.states.placed = true;
 				selectedSlot.states.selected = false;
 				main.handFilter = '';
 				main.gamemode.actions[0].states.active = false;
@@ -314,14 +340,13 @@
 				randomInt = Math.floor(Math.random() * main.decks.characters.length);
 				card = main.decks.characters[randomInt];
 				cards.push(card);
-				console.log('char card', card);
+				card.states.drawn = true;
 			}
 			for (i = 0; i < main.gamemode.options.draw.trait; i++) {
 				randomInt = Math.floor(Math.random() * main.decks.traits.length);
 				card = main.decks.traits[randomInt];
+				card.states.drawn = true;
 				cards.push(card);
-				console.log('trait card', card);
-				console.log('trait card2', randomInt);
 			}
 
 			return cards;
