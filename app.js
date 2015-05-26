@@ -5,8 +5,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var io = require('socket.io');
 
 var app = express();
+var http = require('http').Server(app);
+
+var port = 3000;
 
 
 var TaskList = require('./routes/tasklist');
@@ -106,8 +110,21 @@ app.get('/node_modules/*', function (req, res) {
 
 
 
+// Socket.IO
+/*
+io.on('connection', function(socket){
+	console.log('a user connected');
+});
+*/
 
 
-app.listen(3000); // Listen on port 3000
-console.log("Listening on port :3000");
+
+
+
+http.listen(3000, function(){
+	console.log('listening on *:3000');
+});
+//io.listen(app.listen(port));
+//app.listen(port); // Listen on port 3000
+//console.log("Listening on port :" + port);
 module.exports = app;

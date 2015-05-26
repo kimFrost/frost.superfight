@@ -10,9 +10,9 @@ function TaskList(connectionString) {
 	mongoose.connect(connectionString);
 	db = mongoose.connection;
 	//console.log(db);
-	db.on('error', console.error.bind(console, 'connection error:'));
+	db.on('error', console.error.bind(console, 'DB connection error:'));
 	db.once('open', function (callback) {
-		console.log('Connection to db is open');
+		console.log('Connection to DB is open');
 	});
 }
 

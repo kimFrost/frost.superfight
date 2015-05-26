@@ -337,16 +337,20 @@
 			var card;
 			var randomInt;
 			for (i = 0; i < main.gamemode.options.draw.char; i++) {
-				randomInt = Math.floor(Math.random() * main.decks.characters.length);
-				card = main.decks.characters[randomInt];
-				cards.push(card);
-				card.states.drawn = true;
+				if (main.decks.characters.length > 0) {
+					randomInt = Math.floor(Math.random() * main.decks.characters.length);
+					card = main.decks.characters[randomInt];
+					cards.push(card);
+					card.states.drawn = true;
+				}
 			}
 			for (i = 0; i < main.gamemode.options.draw.trait; i++) {
-				randomInt = Math.floor(Math.random() * main.decks.traits.length);
-				card = main.decks.traits[randomInt];
-				card.states.drawn = true;
-				cards.push(card);
+				if (main.decks.traits.length > 0) {
+					randomInt = Math.floor(Math.random() * main.decks.traits.length);
+					card = main.decks.traits[randomInt];
+					card.states.drawn = true;
+					cards.push(card);
+				}
 			}
 
 			return cards;
