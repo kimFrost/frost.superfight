@@ -418,12 +418,19 @@
 			}
 		}
 
-		/**---------------------------------------
-		 BINDINGS
-		 ---------------------------------------**/
+/**---------------------------------------
+		BINDINGS
+---------------------------------------**/
 
-			// Get all cards from db
-			//main.cards = getCards();
+		// Socket bindings
+		main.socket.on('connected', function(socket) {
+			console.log('You are connected to a socket', socket);
+		});
+
+
+
+		// Get all cards from db
+		//main.cards = getCards();
 		getCards();
 
 	}

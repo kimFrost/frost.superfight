@@ -112,11 +112,45 @@ app.get('/node_modules/*', function (req, res) {
 
 
 // Socket.IO
+var clients = [];
 io.on('connection', function(socket){
 	console.log('a user connected');
+
+
+	clients.push(socket);
+
+	// Send connected msg
+	socket.emit('connected', {
+		something: 'asdsadsd'
+	});
+
 	socket.on('disconnect', function(){
 		console.log('user disconnected');
+		clients.splice(clients.indexOf(socket), 1);
 	});
+
+	/*
+	socket.on('getClients', function() {
+		console.log('Socket ready');
+		clients.forEach(function(client, index) {
+
+		});
+	});
+	*/
+
+
+
+
+	// Use a express api call instead of this
+	/*
+	socket.on('requestConnectUsers', function(){
+		console.log('socket:requestConnectUsers');
+	});
+	*/
+
+
+	//socket.broadcast.emit('hi'); // Send to all connected expect the socket itself
+	//io.emit('some event', {data:data}); // Allow client to bind to 'some event'
 });
 
 
