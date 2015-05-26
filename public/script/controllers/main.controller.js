@@ -37,6 +37,7 @@
 		main.handFilter = '';
 		main.slots = [];
 		main.gamemode = {};
+		main.socket = io();
 		main.states = {
 			pending: false,
 			success: false,

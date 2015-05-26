@@ -5,10 +5,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var io = require('socket.io');
+
 
 var app = express();
 var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var port = 3000;
 
@@ -111,12 +112,12 @@ app.get('/node_modules/*', function (req, res) {
 
 
 // Socket.IO
-/*
 io.on('connection', function(socket){
 	console.log('a user connected');
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
 });
-*/
-
 
 
 
