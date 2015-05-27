@@ -111,42 +111,75 @@ app.get('/node_modules/*', function (req, res) {
 
 
 
+
+
+
 // Socket.IO
 var clients = [];
+var rooms = [];
+
+
+function pushClient(id) {
+	var client = {
+		id: id
+	};
+	clients.push(client);
+}
+
+function makeClientList() {
+	var _clients = [];
+	for (var i = 0; i < clients.length; i++) {
+		var _client = clients[i];
+		var client = {
+			id: _client.id
+		};
+		_clients.push(client);
+	}
+	return _clients;
+}
+
+
 io.on('connection', function(socket){
 	console.log('a user connected');
-
-
 	clients.push(socket);
 
-	// Send connected msg
-	socket.emit('connected', {
-		something: 'asdsadsd'
-	});
+	socket.join('hub');
+
+	//console.log('socket.id: ' + socket.id);
 
 	socket.on('disconnect', function(){
 		console.log('user disconnected');
 		clients.splice(clients.indexOf(socket), 1);
 	});
 
-	/*
-	socket.on('getClients', function() {
-		console.log('Socket ready');
-		clients.forEach(function(client, index) {
 
-		});
+	// Send connected msg
+	socket.emit('connected', {
+		id: socket.id,
+		clients: makeClientList()
+	});
+
+	/*
+	socket.broadcast.emit('clientConnected', {
+		clients: makeClientList()
 	});
 	*/
+	socket.to('hub').emit('clientConnected', {
+		clients: makeClientList()
+	});
+
+
+	console.log('clients.length: ' + clients.length);
 
 
 
 
 	// Use a express api call instead of this
-	/*
-	socket.on('requestConnectUsers', function(){
-		console.log('socket:requestConnectUsers');
-	});
-	*/
+
+	//socket.on('requestConnectUsers', function(){
+		//console.log('socket:requestConnectUsers');
+	//});
+
 
 
 	//socket.broadcast.emit('hi'); // Send to all connected expect the socket itself
@@ -155,10 +188,10 @@ io.on('connection', function(socket){
 
 
 
-
 http.listen(3000, function(){
 	console.log('listening on *:3000');
 });
+
 //io.listen(app.listen(port));
 //app.listen(port); // Listen on port 3000
 //console.log("Listening on port :" + port);

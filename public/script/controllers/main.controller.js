@@ -423,10 +423,16 @@
 ---------------------------------------**/
 
 		// Socket bindings
+		//main.socket.on('connect', function() {
 		main.socket.on('connected', function(socket) {
 			console.log('You are connected to a socket', socket);
 		});
-
+		main.socket.on('error', function(obj) {
+			console.log('You failed to connect to a socket', obj);
+		});
+		main.socket.on('clientConnected', function(clients) {
+			console.log('clients', clients);
+		});
 
 
 		// Get all cards from db
