@@ -173,7 +173,6 @@ io.on('connection', function(socket){
 
 
 
-
 	// Use a express api call instead of this
 
 	//socket.on('requestConnectUsers', function(){
