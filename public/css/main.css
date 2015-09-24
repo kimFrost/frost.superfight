@@ -593,10 +593,11 @@ html {
   width: 100%;
   padding-bottom: 130%;
   color: #000000;
+  font-family: Helvetica Neue, Helvetica, Arial;
   background-color: #fafafa;
   border: 1px solid #b3b3b3;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000323}}
 .card::before {
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -618,7 +619,7 @@ html {
   background-repeat: repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000341}}
 .card,
 .card__inner {
   box-sizing: border-box;
@@ -626,7 +627,7 @@ html {
   -webkit-box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000350}}
 .card__inner {
   display: block;
   position: absolute;
@@ -634,38 +635,39 @@ html {
   top: 0;
   width: 100%;
   height: 100%;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000366}}
 .card--back {
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000368}}
 .card--back::before {
   -moz-transform: rotateY(360deg);
   -webkit-transform: rotateY(360deg);
   transform: rotateY(360deg);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000381}}
 .card--trait {
   background-color: #000000;
   color: #ffffff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000390}}
 .card--traitTrade {
   background-color: #000000;
   color: #ffffff;
   border: 1px solid greenyellow;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000396}}
 .card--traitRandom {
   background-color: #000000;
   color: #ffffff;
