@@ -3,6 +3,8 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/assets/Gruntfile.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/assets/styles/block/_card.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/styles/block/_hand.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/styles/block/_table.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/views/index.jade" charset="ISO-8859-1" />
   </component>
 </project>

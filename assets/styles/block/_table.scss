@@ -9,6 +9,8 @@
   padding: 10px;
   min-height: 100%;
   background-color: $color_midgrey;
+  font-size: 12px;
+  line-height: 1.1;
   &::after {
     content: "";
     display: table;
