@@ -594,10 +594,11 @@ html {
   padding-bottom: 130%;
   color: #000000;
   font-family: Helvetica Neue, Helvetica, Arial;
+  line-height: 1.3;
   background-color: #fafafa;
   border: 1px solid #b3b3b3;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000324}}
 .card::before {
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
@@ -619,7 +620,7 @@ html {
   background-repeat: repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000342}}
 .card,
 .card__inner {
   box-sizing: border-box;
@@ -627,7 +628,7 @@ html {
   -webkit-box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000351}}
 .card__inner {
   display: block;
   position: absolute;
@@ -639,35 +640,36 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000368}}
 .card--back {
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000370}}
 .card--back::before {
   -moz-transform: rotateY(360deg);
   -webkit-transform: rotateY(360deg);
   transform: rotateY(360deg);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000383}}
 .card--trait {
   background-color: #000000;
   color: #ffffff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000392}}
 .card--traitTrade {
   background-color: #000000;
   color: #ffffff;
   border: 1px solid greenyellow;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_card\.scss}line{font-family:\0000398}}
 .card--traitRandom {
   background-color: #000000;
   color: #ffffff;
@@ -681,7 +683,7 @@ html {
   padding: 10px;
   min-height: 100%;
   background-color: #6F777E;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Workspace\/frost\.superfight\/assets\/styles\/block\/_table\.scss}line{font-family:\0000314}}
@@ -736,7 +738,7 @@ html {
   overflow-y: hidden;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.7);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.1;
 }
 
